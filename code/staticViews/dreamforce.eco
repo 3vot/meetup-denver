@@ -1,0 +1,47 @@
+<div class="row-block-head" >
+	<div  class="row-block-title">Dreamforce Recap</div>
+	<blockquote class="row-block-text">Secret to digital success: Speed and Javascript</blockquote>
+</div>
+
+
+<div class="row-block row-block__blue">
+	<div  class="row-block-title"> "Move fast!</div>
+	<div class="row-block-text row-block-text__large">Those taking too long to consider things, will find themselves left behind"</div>
+	<div class="row-block-text row-block-text__large">Jeroen Tas, Phillips</div>
+	<div class="padding-end-200"></div>
+</div>
+
+<div class="row-block row-block__purple">
+	<div class="row-block-title">It's not how great your apps is</div>
+	<div class="row-block-text row-block-text__large">is how fast you can make it better</div>
+	<div class="row-block-text row-block-text__large ">Adam Seligman, Salesforce Developer</div>
+	<div class="padding-end-200"></div>
+
+</div>
+
+<div class="row-block">
+	<div  class="row-block-title"> Best apps are updated weekly!</div>
+	<div class="row-block-text row-block-text__large">Tip: Increase iterations, decrease cycle times  </div>
+	<div class="row-block-title"><a class="btn btn-warning btn-lg">Click to preview</a></div>
+	<div class="row-block-title"><a class="btn btn-success btn-lg">Click to deploy button</a></div>
+	<div class="padding-end-200"></div>
+</div>
+
+
+<div class="row-block row-block__blue">
+	<div class="row-block-title">You don’t have to be a software company to build apps</div>
+	 <div class="row-block-text row-block-text__large">Mark Benioff, Salesforce</div>
+	<div class="padding-end-200"></div>
+</div>
+
+<div class="row-block row-block__purple">
+	<div  class="row-block-title">Visualforce Lightning</div>
+	<div class="row-block-text row-block-text__large">A Javascript Component Framework for Salesforce.com</div>
+	<div class="padding-end-200"></div>
+</div>
+
+<div class="navigation-block">
+			<a data-event="next" class="btn btn-lg pull-left btn-primary">Go Back</a>
+
+		<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>
+</div>

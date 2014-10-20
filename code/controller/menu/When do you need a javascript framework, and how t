@@ -1,0 +1,27 @@
+When do you need a javascript framework? and how to pick one?
+
+First, you don't need a framework unless you are building a very very fat client. Like a Web Graphic Editor, or Web Microsoft Office. On the other hand, you used to need a framework to build prototypes. But you definitely need a framework if you don't know javascript. Also if you keep using that framework, you'll never learn.
+
+If you are building a small app: A framework is not really necessary, but using it wont harm anyone. If you are building an App, you better know how to write your own javascript and choose small packages from NPM, Component.io or Bower; in order to build your own Framework for the project, if you don't you'll loose control of the code sooner or latter and be force to respond: "We can't make the app do that"... when it's required to grow the business!
+
+That's basically how it's done, most successful projects have their own frameworks that are based on a collection of smaller packages that do one thing, do it well, and are easy to connect; aka Unix. A great example is smart-clicks from my friend Matthew Carunna used to remove the 300ms delay in Mobile HTML5
+
+Some Advice:
+
+If you are still having trouble picking which framework to use, it's probably better to not use any.
+
+If you are very familiar with your own framework, and you use it to build all of your projects and don't try/think of an alternative solution... sorry you are stuck. 
+
+Building with Javascript
+
+Building in javascript is easy and fast if you use the NODEJS approach also known as CommonJS. CommonJS let's you divide your code in files or modules. This changes everything, because now you can re-use, compile, transform and maintain code. This allows you to write more robust and complex apps, so they are simple for the users.
+
+A very smart tool called browserify let's you write code the NODEJS way for the browser and let's you use all 100K packages from NPM, the largest library of code in history, it's 100% for Javascript.
+
+Performance and Loadtime are the most important part of your app, using large frameworks like JQUERY or Monolitic ones ones like Angular, where only a few people can follow it's code, adapt or modified; it's not a good idea. You can try to use them, I certainly had gotten myself into enought trouble using them.
+
+Apps should not be too large anyway, if they are is better to divide them by purpose and load them separately. An optimun app should have a custom structure and pattern in order to hit pick performance and be highly mantainable. Improvable!
+
+Choosing the Structure, Framework, Library Components and Pattern should not be taken lightly. With our experience we got several receipts that have worked for us. We put together a list of apps so you can get started with this patterns.
+
+The old school of programming, that I highly respect and admire, has always talked of patterns not frameworks. So basically what I am recommending is choose a pattern for your next app; We'll be happy to help you at 3VOT & CLAY
