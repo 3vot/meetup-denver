@@ -4708,9 +4708,9 @@ a._3vot .thumbnail.active {
   color: inherit;
 }
 ._3vot .alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #3c763d;
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+  color: #3c763d !important;
 }
 ._3vot .alert-success hr {
   border-top-color: #c9e2b3;
@@ -4730,9 +4730,9 @@ a._3vot .thumbnail.active {
   color: #245269;
 }
 ._3vot .alert-warning {
-  background-color: #fcf8e3;
-  border-color: #faebcc;
-  color: #8a6d3b;
+  background-color: #fcf8e3  !important;;
+  border-color: #faebcc !important;;
+  color: #8a6d3b !important;;
 }
 ._3vot .alert-warning hr {
   border-top-color: #f7e1b5;

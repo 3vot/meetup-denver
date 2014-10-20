@@ -1,6 +1,7 @@
 var Size = require("element-size")
 var MenuController = require("../controller/menu")
 var StaticController = require("../controller/static");
+var LiveController = require("../controller/live")
 
 var views = [];
 
@@ -42,6 +43,7 @@ LayoutManager.register = function(containerSelector){
   //Register Static Controllers
   var keys = Object.keys(staticControllerViews);
   for( key in keys ){
+    if (!keys.hasOwnProperty(key)) continue;
     var key = keys[key];
     var view = staticControllerViews[ key ]
     
@@ -50,6 +52,10 @@ LayoutManager.register = function(containerSelector){
   }
 
   //Register Dynamic Components
+  LayoutManager.registerView( "live", new LiveController("live") )
+
+
+
   MenuController.on("next", function(){ 
     if(currentControllerIndex == controllersKeys.length -1) return false;
     currentControllerIndex++;
@@ -89,7 +95,10 @@ LayoutManager.bringIntoView = function(){
 
   controller.el.style.display = "block";
 
+
   setTimeout( function(){
+      container.height = controller.el.clientHeight;
+
     if(currentController){
     currentController.el.style.opacity = 0;
     currentController.el.style.left = Position(currentController.el).width * -1;
@@ -136,7 +145,8 @@ function updateHistory(index){
   var history = window.history;
   if(!history) return false;
    
-        return history.replaceState({}, document.title, "#" + index);
+  if(top) return top.history.replaceState({}, document.title, "#" + index);
+  return history.replaceState({}, document.title, "#" + index);
       //} else if (this.history) {
        // return history.pushState({}, document.title, this.path);
       //} else {
@@ -148,6 +158,7 @@ var hashStrip = /^#*/;
 function getPath(){
   var path;
   path = window.location.hash;
+  if(top) path = top.location.hash;
   path = path.replace(hashStrip, '');
   if(!parseInt(path)) return 0;
   return path;

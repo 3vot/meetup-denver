@@ -1,0 +1,1 @@
+				<li data-type="<%= @Type %>" class="list-group-item " data-id="<%=  @id %>"><%= @Name %></li>

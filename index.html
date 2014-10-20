@@ -1,5 +1,9 @@
 <apex:page sidebar="false" showHeader="false"  >
 
+ <c:ThreeVotComponent></c:ThreeVotComponent>
+ 
+
+
 	<head>
 		<!-- Meta, title, CSS, favicons, etc. -->
 		<meta charset="utf-8"></meta>
@@ -23,6 +27,10 @@
 	</div>
 
 	<script>	
+
+		if (typeof Visualforce != 'object') {
+    	Visualforce = {remoting: {Manager: {invokeAction: function(){}}}};
+  	}
 
 	</script>
 
