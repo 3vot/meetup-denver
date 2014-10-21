@@ -5,7 +5,7 @@
 
 
 <div class="row-block row-block__blue">
-	<div  class="row-block-title"> "Move fast!</div>
+	<div  class="row-block-title"> Move fast!</div>
 	<div class="row-block-text row-block-text__large">Those taking too long to consider things, will find themselves left behind"</div>
 	<div class="row-block-text row-block-text__large"><i><small>Jeroen Tas, Phillips</small></i></div>
 	<!-- <div class="padding-end-200"></div> -->
@@ -17,9 +17,9 @@
 	<div class="row-block-text row-block-text__large "><i><small>Adam Seligman, Salesforce Developer</small></i></div>
 	<!-- <div class="padding-end-200"></div> -->
 
-</div><
+</div>
 
-<div class="row-block">
+<div class="row-block row-block__white">
 	<div  class="row-block-title"> Best apps are updated weekly!</div>
 	<div class="row-block-text row-block-text__large">Tip: Increase iterations, decrease cycle times  </div>
 	<div class="row-block-title"><a class="btn btn-warning btn-lg">Click to preview</a> <a class="btn btn-success btn-lg">Click to deploy button</a></div>
