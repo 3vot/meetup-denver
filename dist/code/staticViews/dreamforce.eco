@@ -30,12 +30,14 @@
 
 
 <div class="row-block row-block__blue">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-quote-blue.png" alt=""></div>
 	<div class="row-block-title">You don’t have to be a software company to build apps</div>
 	 <div class="row-block-text row-block-text__large"><i><small>Mark Benioff, Salesforce</small></i></div>
 	<div class="padding-end-100"></div>
 </div>
 
 <div class="row-block row-block__purple">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-lightning-yellow.png" alt=""></div>
 	<div  class="row-block-title">Visualforce Lightning</div>
 	<div class="row-block-text row-block-text__large">A Javascript Component Framework for Salesforce.com</div>
 	<div class="padding-end-100"></div>
