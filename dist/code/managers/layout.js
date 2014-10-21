@@ -3,13 +3,10 @@ var MenuController = require("../controller/menu")
 var StaticController = require("../controller/static");
 var LiveController = require("../controller/live")
 
-var views = [];
+var EmbedController = require("../controller/embed")
+
 
 var leftBorder, rightBorder, bottomBorder, container, topBorder, currentController, viewportWidth, viewportHeight;
-
-var currentControllerIndex = 0;
-var controllers = {};
-var controllersKeys = []
 
 var staticControllerViews = {
   home: require("../staticViews/home"),
@@ -21,6 +18,11 @@ var staticControllerViews = {
 
 var LayoutManager = {}
 
+var currentControllerIndex = 0;
+var controllers = {};
+var controllersKeys = []
+var views = [];
+
 LayoutManager.register = function(containerSelector){
 
 	container = document.querySelector(containerSelector);
@@ -28,6 +30,12 @@ LayoutManager.register = function(containerSelector){
   container.onclick = function(e){
     if(e.target.dataset.event == "next"){
       var nextController = controllers[ controllersKeys[++currentControllerIndex] ]
+      LayoutManager.bringIntoView( nextController );
+      document.querySelector("body").scrollTop = 0;
+    
+    }
+    else if(e.target.dataset.event == "back"){
+      var nextController = controllers[ controllersKeys[--currentControllerIndex] ]
       LayoutManager.bringIntoView( nextController );
       document.querySelector("body").scrollTop = 0;
     }
@@ -54,6 +62,7 @@ LayoutManager.register = function(containerSelector){
   //Register Dynamic Components
   LayoutManager.registerView( "live", new LiveController("live") )
 
+  LayoutManager.registerView( "embed", new EmbedController("embed") )
 
 
   MenuController.on("next", function(){ 

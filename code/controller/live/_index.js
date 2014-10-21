@@ -3,65 +3,92 @@ var domify = require("domify");
 var Account = require("../../model/account");
 var Case = require("../../model/case");
 var Contact = require("../../model/contact");
-var Type = require("../../model/type");
 
 var Layout = require("./layout");
-
-var ListController = require("../list");
-
+var ListItem = require("./item");
+var ListType = require("./type");
 
 function Live(name){
 	var _this = this;
 	if(!name) name = "";
 	this.el = domify( Layout(name) );
 
-	var accountContainer = this.el.querySelector(".account_list");
-	this.accountListController = new ListController( accountContainer , "account", Account, ["Type"]  );
+	this.type_list = this.el.querySelector(".type_list");
+	this.type_list.onclick = function(e){ 
+		if(!Account.selected) _this.typeClick(e) 
+		else _this.typeSelected(e) 
+	}
 
-	var typeContainer = this.el.querySelector(".type_list");
-	this.typeListController = new ListController( typeContainer , "type", Type, [""], "tab" );
+	this.list = this.el.querySelector(".account_list");
+	this.list.onclick = function(e){ _this.itemClick(e) }
 
-	var contactContainer = this.el.querySelector(".contact_list");
-	this.contactListController = new ListController( contactContainer , "contact", Contact, [""] );
 
-	var caseContainer = this.el.querySelector(".case_list");
-	this.caseListController = new ListController( caseContainer , "case", Case, ["Subject"], "", "Subject" );
-
+	Account.query("select Type,name, id from account order by Type desc")
+	.fail( function(){ console.log(arguments[0].stack) } ) 
+	.then(function(){  
+		_this.renderAccounts(); 
+		_this.renderTypes(); 
+		_this.type_elements=	_this.type_list.querySelectorAll(".type_list .alert")
+	})
+	
 	Account.bind("SELECTED",function(account){
-		_this.onAccountSelected(account);
+		//_this.onAccountSelected(account);
 	})
 
-	Contact.bind("SELECTED", function(contact){
-		_this.onContactSelected(contact);
-	})
-
-	Type.bind("SELECTED",function(target){
-		_this.onTypeSelected(target);
+	Account.bind("ACCOUNT_TYPE_SELECTED",function(target){
+		_this.onAccountTypeSelected(target);
 	});
 
+Live.prototype.renderAccounts = function(accounts){
+	this.list.innerHTML = "";
+	accounts = accounts || Account.all();
 
-Live.prototype.onAccountSelected = function(e){
-	/*
+	for (var i = accounts.length - 1; i >= 0; i--) {
+		var account = accounts[i];
+		this.list.innerHTML += ListItem(account);
+	};
+	
+}
+
+Live.prototype.renderTypes = function(){
+	var _this = this;
+
+	this.type_list.innerHTML = "";
+
+	var types = Account.getTypes();
+	for (var i = types.length - 1; i >= 0; i--) {
+		var type = types[i];
+		this.type_list.innerHTML += ListType(type);
+	};
+
+}
+
+Live.prototype.itemClick = function(e){
+	var els = this.list.querySelectorAll(".account_list li")
+	for (var i = els.length - 1; i >= 0; i--) {
+		els[i].classList.remove("active")
+	};
+	
+	e.target.classList.add("active");
+
+	var id = e.target.dataset.id
+	var account = Account.find(id);
+	Account.trigger("SELECTED", account);
+	Account.selected = account;
+
+	//THIS SHOULD GO SOMEWHERE ELSE
 	for (var i = this.type_elements.length - 1; i >= 0; i--) {
 			var type = this.type_elements[i];
 			type.classList.remove("alert-success");
 			type.classList.add("alert-warning");
 		};
-	*/
-	Case.destroyAll({ignoreAjax: true});
-	Contact.destroyAll({ignoreAjax: true});
 
-	Case.query("select subject, id, ContactId from case where accountid = '" + Account.selected.id + "'")
-	.fail( function(e){ console.log(e.stack) } )
+	Case.query("select subject, id from case where accountid = '" + Account.selected.id + "'")
+	.then( function(){ console.log(Case.all()) } )
 
 	Contact.query("select name, id from contact  where accountid = '" + Account.selected.id + "'")
+	.then( function(){ console.log(Contact.all()) } )
 
-}
-
-Live.prototype.onContactSelected = function(contact){
-	var cases = Case.findAllByAttribute("ContactId",Contact.selected.id);
-	console.log(cases)
-	this.caseListController.render(cases);
 }
 
 Live.prototype.typeClick = function(e){
@@ -89,7 +116,7 @@ Live.prototype.typeClick = function(e){
 
 }
 
-Live.prototype.onTypeSelected = function(e){
+Live.prototype.typeSelected = function(e){
 	e.target.classList.remove("alert-success");
 	setTimeout(function(){ e.target.classList.remove("alert-success" );})
 	Account.trigger("ACCOUNT_TYPE_SELECTED", e.target);	

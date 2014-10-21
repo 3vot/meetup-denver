@@ -41,7 +41,7 @@
 </div>
 
 <div class="navigation-block">
-			<a data-event="next" class="btn btn-lg pull-left btn-primary">Go Back</a>
+			<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>
 
 		<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>
 </div>

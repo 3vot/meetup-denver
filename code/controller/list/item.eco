@@ -1,0 +1,9 @@
+<li data-type="<%= @Type %>" class="list-group-item  list_item" data-id="<%= @id %>">
+
+	<% if !@label: %>
+		<%= @Name %>
+	<% else: %>
+		<%= @[@label] %>
+	<% end %>
+
+</li>

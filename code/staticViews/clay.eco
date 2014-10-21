@@ -13,19 +13,55 @@
 	<div  class="row-block-title"> It's based on components </div>
 	<div class="row-block-text row-block-text__large">But it's not a Framework, is larger than that</div>
 	<div class="row-block-text row-block-text__large">an open source architecture</div>
-	<div class="row-block-text row-block-text__large">where you can build your framework</div>
+	<div class="row-block-text row-block-text__large">where you can build your own framework</div>
 	<div class="padding-end-200"></div>
 </div>
 
 
+<div class="row-block row-block row-block__blue">
+	<div  class="row-block-title"> Over 30 Development Solutions in one Package </div>
+	
+	<div  class="container">
+		
+		<div class="row">
+		
+			<div class="col-md-3 "><div class="thumbnail"> Build Locally</div></div>
+			<div class="col-md-3 "><div class="thumbnail"> Staging Preview</div></div>
+			<div class="col-md-3 "><div class="thumbnail"> One Click Deploy</div></div>
+			<div class="col-md-3 "><div class="thumbnail"> Object Oriented</div></div>
+			<div class="col-md-3 "><div class="thumbnail"> Modular - Component Based</div></div>
+			<div class="col-md-3 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>
+
+		</div>
+	</div>
+
+
+	<div class="padding-end-200"></div>
+</div>
+
+
+<div class="row-block row-block__blue">
+	<div  class="row-block-title"> Push to Deploy</div>
+	<div class="row-block-text row-block-text__large">Promote fast iterations & short cycles</div>
+
+	<div class="row-block-text">
+		<div class="btn btn-large btn-warning">Preview in Staging</div>
+
+		<div class="btn btn-large btn-success">Deploy to Production</div>
+	</div>
+	<div class="padding-end-200"></div>
+</div>
 
 <div class="row-block row-block__purple">
-	<div  class="row-block-title"> Ordered and Instant Production Release</div>
-	<div class="row-block-text row-block-text__large"></div>
+	<div  class="row-block-title"> Clay it's an architecture to build your production line</div>
+	<div class="row-block-text">All apps are the same species </div>
+	<div class="row-block-text">All apps are created equal</div>
+	<div class="row-block-text">All apps are updated equal</div>
+	<div class="row-block-text">Each app is unique</div>
 	<div class="padding-end-200"></div>
 </div>
 
 <div class="navigation-block">
-	<a data-event="next" class="btn btn-lg pull-left btn-primary">Go Back</a>
+	<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>
 	<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>
 </div>

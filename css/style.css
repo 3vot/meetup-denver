@@ -40,8 +40,17 @@ small{
 	color: #888 !important;
 }
 
-/* General */ 
 
+/* Compact Layout */ 
+.compact .menu-component{
+	display: none;
+}
+
+.compact .view{
+	padding-top: 20px;
+}
+
+/* General */ 
 
 .slide-container{
 	width: 100%;
@@ -72,7 +81,6 @@ small{
 	right: 0px;
 	height: 110px;
 }
-
 
   .top-header{
 	  height: 28px;
@@ -256,8 +264,8 @@ small{
   ;
 }
 
-
-._3vot .alert-warning {
-	border-color: #fff !important;
-	border-width: 3px;
+.alert.active {
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+  color: #3c763d !important;
 }
