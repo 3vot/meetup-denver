@@ -9,13 +9,13 @@
 
 	<div class="header">
 
-		<div class="header-title"> 3VOT</div>
+		<div class="header-title"><img src="{3vot}/images/clay-logo.png" alt=""></div>
 
-		<div class="header-message">
+		<!-- <div class="header-message">
 			
 			--------------  Welcome to CLAY  --------------
 
-		</div>
+		</div> -->
 
 
 		<div class="header-panel">
