@@ -5,6 +5,7 @@
 
 
 <div class="row-block row-block__blue">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-quote-blue.png" alt=""></div>
 	<div  class="row-block-title"> Move fast!</div>
 	<div class="row-block-text row-block-text__large">Those taking too long to consider things, will find themselves left behind"</div>
 	<div class="row-block-text row-block-text__large"><i><small>Jeroen Tas, Phillips</small></i></div>
@@ -12,6 +13,7 @@
 </div>
 
 <div class="row-block row-block__purple">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-quote-purple.png" alt=""></div>
 	<div class="row-block-title">It's not how great your apps is</div>
 	<div class="row-block-text row-block-text__large">is how fast you can make it better</div>
 	<div class="row-block-text row-block-text__large "><i><small>Adam Seligman, Salesforce Developer</small></i></div>
