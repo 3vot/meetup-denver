@@ -1,24 +1,29 @@
-<div class="row-block-head" >
+<div class="row-block row-block-head" >
 
-	<div  class="row-block-title">What makes you faster?</div>
+	<div class="container">
+		<div  class="row-block-title">What makes you faster?</div>
 
 	<blockquote class="row-block-text">Faster as an Organization, not only as a developer!</blockquote>
 
- 	<div class="row-block-text row-block-text__large">What's the Goal?</div>
+ 	<div class="row-block-text row-block-text__large"><i>What's the Goal?</i></div>
+ 	<div class="padding-end-50"></div>
+	</div>
 
-	<div class="row-block-text"> Build and Release an App in a week</div>
-
-	<div class="row-block-text"> Update and Release in minutes</div>
+	
 
 </div>
 
+<div class="row-block row-block__purple">
+	<div class="row-block-title">Build and Release an App in a week</div>
+	<div class="row-block-text"> Update and Release in minutes</div>
+	<div class="padding-end-100"></div>
+</div>
 
 <div class="row-block row-block__blue" >
 
-	<div class="row-block-title">Code Structure and Architecture - Highly Engineered </div>
-
+	<div class="row-block-title">Code Structure and Architecture</div>
+	<div class="row-block-text">Highly Engineered</div>
 	<div class="padding-end-100"></div>
-
 </div>
 
 <div class="row-block " >
@@ -55,7 +60,7 @@
 </div>
 
 <div class="navigation-block">
-			<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>
+			<a data-event="back" class="btn btn-lg pull-left btn-defaul btn-block">Go Back</a>
 
-		<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>
+		<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>
 </div>

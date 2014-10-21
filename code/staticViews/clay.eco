@@ -1,18 +1,19 @@
-<div class="row-block-head" >
-	<div  class="row-block-title">Clay for Salesforce.com</div>
+<div class="row-block row-block-head" >
+	<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>
 	<blockquote class="row-block-text">Available in App Exchange</blockquote>
 </div>
 
 <div class="row-block row-block__blue">
-	<div  class="row-block-title"> SPEED is our motivation
-	<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div></div>
-	<div class="padding-end-200"></div>
+	<div  class="row-block-title"> SPEED is our motivation</div>
+	<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div>
+	<div class="padding-end-100"></div>
 </div>
 
 <div class="row-block row-block">
 	<div  class="row-block-title"> It's based on components </div>
-	<div class="row-block-text row-block-text__large">But it's not a Framework, is larger than that</div>
+	<div class="row-block-text row-block-text__large"><span class="text-clay">But it's not a Framework</span>, is larger than that</div>
 	<div class="row-block-text row-block-text__large">an open source architecture</div>
+
 	<div class="row-block-text row-block-text__large">where you can build your own framework</div>
 	<div class="padding-end-200"></div>
 </div>
@@ -61,7 +62,14 @@
 	<div class="padding-end-200"></div>
 </div>
 
+
+<div class="row-block row-block__purple">
+	<div  class="row-block-title"> Ordered and Instant Production Release</div>
+	<div class="padding-end-100"></div>
+</div>
+
 <div class="navigation-block">
-	<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>
-	<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>
+	<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>
+	<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>
+
 </div>

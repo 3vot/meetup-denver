@@ -9,6 +9,7 @@ var Layout = require("./layout");
 
 var ListController = require("../list");
 
+<<<<<<< HEAD
 
 function Live(name){
 	var _this = this;
@@ -95,6 +96,17 @@ Live.prototype.onTypeSelected = function(e){
 	Account.trigger("ACCOUNT_TYPE_SELECTED", e.target);	
 
 }
+=======
+function Live(view, name){
+	if(!name) name = "";
+	this.el = domify( Layout(name) );
+
+	var body = this.el.querySelector(".view-body").innerHTML = view();
+
+	
+}
+
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 
 Live.prototype.onAccountTypeSelected = function(target){
 		setTimeout(function(){ 

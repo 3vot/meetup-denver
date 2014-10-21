@@ -301,6 +301,7 @@ function isUndefined(arg) {
 }
 
 },{}],2:[function(require,module,exports){
+<<<<<<< HEAD
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -836,6 +837,8 @@ module.exports = function(__obj) {
   return __out.join('');
 }
 },{}],11:[function(require,module,exports){
+=======
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 var Layout = require("./layout")
 var domify = require("domify")
 var EventEmitter = require('events').EventEmitter;
@@ -865,7 +868,11 @@ function onButtonClick(e){
 
 
 module.exports = Menu
+<<<<<<< HEAD
 },{"./layout":12,"domify":35,"events":1}],12:[function(require,module,exports){
+=======
+},{"./layout":3,"domify":13,"events":1}],3:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -905,7 +912,7 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('<div class="menu-component">\n\t\n\t<div class=" top-header">\n\t\t\t<small class="small-text"> clay for salesforce . com </small>\n\t\t\t<small style="float: right"> gitub.com/3vot </small>\n\t</div>\n\n\t\n\n\t<div class="header">\n\n\t\t<div class="header-title"> 3VOT</div>\n\n\t\t<div class="header-message">\n\t\t\t\n\t\t\t--------------  Welcome to CLAY  --------------\n\n\t\t</div>\n\n\n\t\t<div class="header-panel">\n\t\t\n\t\t\tContents\n\n\t\t</div>\n\t</div>\n\n</div>');
+      __out.push('<div class="menu-component">\n\t\n\t<div class=" top-header">\n\t\t\t<small class="small-text"> clay for salesforce . com </small>\n\t\t\t<small style="float: right"> gitub.com/3vot </small>\n\t</div>\n\n\t\n\n\t<div class="header">\n\n\t\t<div class="header-title"><img src="{3vot}/images/clay-logo.png" alt=""></div>\n\n\t\t<!-- <div class="header-message">\n\t\t\t\n\t\t\t--------------  Welcome to CLAY  --------------\n\n\t\t</div> -->\n\n\n\t\t<div class="header-panel">\n\t\t\n\t\t\tContents\n\n\t\t</div>\n\t</div>\n\n</div>');
     
     }).call(this);
     
@@ -913,7 +920,11 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
+<<<<<<< HEAD
 },{}],13:[function(require,module,exports){
+=======
+},{}],4:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 var domify = require("domify");
 
 var Layout = require("./layout");
@@ -927,7 +938,11 @@ function Static(view, name){
 }
 
 module.exports = Static;
+<<<<<<< HEAD
 },{"./layout":14,"domify":35}],14:[function(require,module,exports){
+=======
+},{"./layout":5,"domify":13}],5:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -979,11 +994,14 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
+<<<<<<< HEAD
 },{}],15:[function(require,module,exports){
+=======
+},{}],6:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 var Size = require("element-size")
 var MenuController = require("../controller/menu")
 var StaticController = require("../controller/static");
-var LiveController = require("../controller/live")
 
 var EmbedController = require("../controller/embed")
 
@@ -1033,7 +1051,6 @@ LayoutManager.register = function(containerSelector){
   //Register Static Controllers
   var keys = Object.keys(staticControllerViews);
   for( key in keys ){
-    if (!keys.hasOwnProperty(key)) continue;
     var key = keys[key];
     var view = staticControllerViews[ key ]
     
@@ -1042,11 +1059,14 @@ LayoutManager.register = function(containerSelector){
   }
 
   //Register Dynamic Components
+<<<<<<< HEAD
   LayoutManager.registerView( "live", new LiveController("live") )
 
   LayoutManager.registerView( "embed", new EmbedController("embed") )
 
 
+=======
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
   MenuController.on("next", function(){ 
     if(currentControllerIndex == controllersKeys.length -1) return false;
     currentControllerIndex++;
@@ -1086,10 +1106,7 @@ LayoutManager.bringIntoView = function(){
 
   controller.el.style.display = "block";
 
-
   setTimeout( function(){
-      container.height = controller.el.clientHeight;
-
     if(currentController){
     currentController.el.style.opacity = 0;
     currentController.el.style.left = Position(currentController.el).width * -1;
@@ -1136,8 +1153,7 @@ function updateHistory(index){
   var history = window.history;
   if(!history) return false;
    
-  if(top) return top.history.replaceState({}, document.title, "#" + index);
-  return history.replaceState({}, document.title, "#" + index);
+        return history.replaceState({}, document.title, "#" + index);
       //} else if (this.history) {
        // return history.pushState({}, document.title, this.path);
       //} else {
@@ -1149,7 +1165,6 @@ var hashStrip = /^#*/;
 function getPath(){
   var path;
   path = window.location.hash;
-  if(top) path = top.location.hash;
   path = path.replace(hashStrip, '');
   if(!parseInt(path)) return 0;
   return path;
@@ -1157,6 +1172,7 @@ function getPath(){
 
 
 module.exports = LayoutManager;
+<<<<<<< HEAD
 },{"../controller/embed":3,"../controller/live":9,"../controller/menu":11,"../controller/static":13,"../staticViews/clay":22,"../staticViews/dreamforce":23,"../staticViews/home":24,"../staticViews/slow":25,"../staticViews/speed":26,"element-size":36}],16:[function(require,module,exports){
 var _3Model = require("clay-model")
 var Ajax = require("clay-model-vfr");
@@ -1218,6 +1234,9 @@ module.exports= Contact;
 },{"clay-model":32,"clay-model-vfr":28}],21:[function(require,module,exports){
 module.exports=require(17)
 },{"clay-model":32}],22:[function(require,module,exports){
+=======
+},{"../controller/menu":2,"../controller/static":4,"../staticViews/clay":7,"../staticViews/dreamforce":8,"../staticViews/home":9,"../staticViews/slow":10,"../staticViews/speed":11,"element-size":14}],7:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1257,7 +1276,11 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
+<<<<<<< HEAD
       __out.push('<div class="row-block-head" >\n\t<div  class="row-block-title">Clay for Salesforce.com</div>\n\t<blockquote class="row-block-text">Available in App Exchange</blockquote>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> SPEED is our motivation\n\t<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div></div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block">\n\t<div  class="row-block-title"> It\'s based on components </div>\n\t<div class="row-block-text row-block-text__large">But it\'s not a Framework, is larger than that</div>\n\t<div class="row-block-text row-block-text__large">an open source architecture</div>\n\t<div class="row-block-text row-block-text__large">where you can build your own framework</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block row-block__blue">\n\t<div  class="row-block-title"> Over 30 Development Solutions in one Package </div>\n\t\n\t<div  class="container">\n\t\t\n\t\t<div class="row">\n\t\t\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Build Locally</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Staging Preview</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> One Click Deploy</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Object Oriented</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Modular - Component Based</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>\n\n\t\t</div>\n\t</div>\n\n\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> Push to Deploy</div>\n\t<div class="row-block-text row-block-text__large">Promote fast iterations & short cycles</div>\n\n\t<div class="row-block-text">\n\t\t<div class="btn btn-large btn-warning">Preview in Staging</div>\n\n\t\t<div class="btn btn-large btn-success">Deploy to Production</div>\n\t</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title"> Clay it\'s an architecture to build your production line</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>\n</div>\n');
+=======
+      __out.push('<div class="row-block row-block-head" >\n\t<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>\n\t<blockquote class="row-block-text">Available in App Exchange</blockquote>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> SPEED is our motivation</div>\n\t<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block">\n\t<div  class="row-block-title"> It\'s based on components </div>\n\t<div class="row-block-text row-block-text__large"><span class="text-clay">But it\'s not a Framework</span>, is larger than that</div>\n\t<div class="row-block-text row-block-text__large">an open source architecture</div>\n\t<div class="row-block-text row-block-text__large">where you can build your framework</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title"> Ordered and Instant Production Release</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>\n');
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
     
     }).call(this);
     
@@ -1265,7 +1288,11 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
+<<<<<<< HEAD
 },{}],23:[function(require,module,exports){
+=======
+},{}],8:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1305,7 +1332,11 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
+<<<<<<< HEAD
       __out.push('<div class="row-block-head" >\n\t<div  class="row-block-title">Dreamforce Recap</div>\n\t<blockquote class="row-block-text">Secret to digital success: Speed and Javascript</blockquote>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> "Move fast!</div>\n\t<div class="row-block-text row-block-text__large">Those taking too long to consider things, will find themselves left behind"</div>\n\t<div class="row-block-text row-block-text__large">Jeroen Tas, Phillips</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-title">It\'s not how great your apps is</div>\n\t<div class="row-block-text row-block-text__large">is how fast you can make it better</div>\n\t<div class="row-block-text row-block-text__large ">Adam Seligman, Salesforce Developer</div>\n\t<div class="padding-end-200"></div>\n\n</div>\n\n<div class="row-block">\n\t<div  class="row-block-title"> Best apps are updated weekly!</div>\n\t<div class="row-block-text row-block-text__large">Tip: Increase iterations, decrease cycle times  </div>\n\t<div class="row-block-title"><a class="btn btn-warning btn-lg">Click to preview</a></div>\n\t<div class="row-block-title"><a class="btn btn-success btn-lg">Click to deploy button</a></div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-title">You don’t have to be a software company to build apps</div>\n\t <div class="row-block-text row-block-text__large">Mark Benioff, Salesforce</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title">Visualforce Lightning</div>\n\t<div class="row-block-text row-block-text__large">A Javascript Component Framework for Salesforce.com</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>\n</div>\n');
+=======
+      __out.push('<div class="row-block-head  row-block text-white text-shadow" >\n\t<div  class="row-block-title">Dreamforce Recap</div>\n\t<blockquote class="row-block-text">Secret to digital success: Speed and Javascript</blockquote>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> "Move fast!</div>\n\t<div class="row-block-text row-block-text__large">Those taking too long to consider things, will find themselves left behind"</div>\n\t<div class="row-block-text row-block-text__large"><i><small>Jeroen Tas, Phillips</small></i></div>\n\t<!-- <div class="padding-end-200"></div> -->\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-title">It\'s not how great your apps is</div>\n\t<div class="row-block-text row-block-text__large">is how fast you can make it better</div>\n\t<div class="row-block-text row-block-text__large "><i><small>Adam Seligman, Salesforce Developer</small></i></div>\n\t<!-- <div class="padding-end-200"></div> -->\n\n</div><\n\n<div class="row-block">\n\t<div  class="row-block-title"> Best apps are updated weekly!</div>\n\t<div class="row-block-text row-block-text__large">Tip: Increase iterations, decrease cycle times  </div>\n\t<div class="row-block-title"><a class="btn btn-warning btn-lg">Click to preview</a> <a class="btn btn-success btn-lg">Click to deploy button</a></div>\n\t<!-- <div class="padding-end-200"></div> -->\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-title">You don’t have to be a software company to build apps</div>\n\t <div class="row-block-text row-block-text__large"><i><small>Mark Benioff, Salesforce</small></i></div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title">Visualforce Lightning</div>\n\t<div class="row-block-text row-block-text__large">A Javascript Component Framework for Salesforce.com</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>\n');
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
     
     }).call(this);
     
@@ -1313,7 +1344,11 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
+<<<<<<< HEAD
 },{}],24:[function(require,module,exports){
+=======
+},{}],9:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1353,7 +1388,7 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('\n<div class="row-block-head row-block" >\n\n\t<div class="row-block-title">Building Salesforce Apps Fast</div>\n\n\t<blockquote class="row-block-text">The whole Catholic Church Organization just ran a disruptive conference to talk about adapting to changes</blockquote>\n\t\n</div>\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-title">Table of Contents</div>\n\n\t<div class=" row">\n\t\t<ul class="col-md-6 col-md-offset-3 text-list" >\n\t\t\t\n\t\t\t<li> The importance of building amazing UI\'s, or Apps </li>\n\n\t\t\t<li> Dreamforce Recap </li>\n\n\t\t\t<li> The need for Speed </li>\n\t\t\t\n\t\t\t<li> What makes you Slow </li>\n\n\t\t\t<li> Steps to become fast </li>\n\n\t\t\t<li> Building an App Live </li>\n\n\t\t\t<li> Q & A - In Presentation </li>\n\n\t\t\t<li> Extended Q & A - After Presentation</li>\n\n\t\t\t<li> Private Q & A - Thursday October 24 </li>\n\n\t\t</ul>\n\t</div>\t\n</div>\n\n<div class="navigation-block">\n\t\t<a data-event="next" class="btn btn-lg btn-block btn-primary">Start Here</a>\n</div>\n\n');
+      __out.push('\n<div class="row-block-head row-block text-white text-shadow" >\n\n\t<div class="row-block-title"><p>Building Salesforce Apps Fast</p></div>\n\n\t<blockquote class="row-block-text">The whole Catholic Church Organization just ran a disruptive conference to talk about adapting to changes</blockquote>\n\t\n</div>\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-title">Table of Contents</div>\n\n\t<div class=" row">\n\t\t<ul class="col-md-8 col-md-offset-2 text-list" >\n\t\t\t\n\t\t\t<li> The importance of building amazing UI\'s, or Apps </li>\n\n\t\t\t<li> Dreamforce Recap </li>\n\n\t\t\t<li> The need for Speed </li>\n\t\t\t\n\t\t\t<li> What makes you Slow </li>\n\n\t\t\t<li> Steps to become fast </li>\n\n\t\t\t<li> Building an App Live </li>\n\n\t\t\t<li> Q & A - In Presentation </li>\n\n\t\t\t<li> Extended Q & A - After Presentation</li>\n\n\t\t\t<li> Private Q & A - Thursday October 24 </li>\n\n\t\t</ul>\n\t</div>\t\n</div>\n\n<div class="navigation-block">\n\t\t<a data-event="next" class="btn btn-default btn-lg btn-block ">Start Here</a>\n</div>\n\n');
     
     }).call(this);
     
@@ -1361,7 +1396,11 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
+<<<<<<< HEAD
 },{}],25:[function(require,module,exports){
+=======
+},{}],10:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1401,7 +1440,11 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
+<<<<<<< HEAD
       __out.push('<div class="row-block-head" >\n\n\t<div  class="row-block-title">What makes you slow?</div>\n\n\t<blockquote class="row-block-text">Let\'s identify what\'s dragging us!</blockquote>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Developing from a Browser</div>\n\t<div class="row-block-text">Server Side Compile</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block" >\n\n\t<div class="row-block-title">Isolation from the World Community</div>\n\t<div class="row-block-text"> - No change - No Innovation</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title">Lack of Answers, Tools & Support for Developers</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Proprietary Technology & Frameworks</div>\n\t<div class="row-block-text"> - Waiting for Changes</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__" >\n\n\t<div class="row-block-title"> Scripts & Development Process\n\t<div class="row-block-text"> Working outside your core</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title"> Team Size and Team Management</div>\n\t<div class="row-block-text"> Not being able to outsource properly</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Spaghetti Code</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>\n</div>');
+=======
+      __out.push('<div class="row-block row-block-head" >\n\t\n\t<div  class="row-block-title">What makes you slow?</div>\n\n\t<blockquote class="row-block-text">Let\'s identify what\'s dragging us!</blockquote>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Developing from a Browser</div>\n\t<div class="row-block-text">Server Side Compile</div>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block" >\n\n\t<div class="row-block-title">Isolation from the World Community</div>\n\t<div class="row-block-text"> - No change - No Innovation</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title">Lack of Answers, Tools & Support for Developers</div>\n\n\t<div class="padding-end-50"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Proprietary Technology & Frameworks</div>\n\t<div class="row-block-text"> - Waiting for Changes</div>\n</div>\n\n<div class="row-block row-block__" >\n\n\t<div class="row-block-title"> Scripts & Development Process</div>\n\t<div class="row-block-text"> Working outside your core</div>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title"> Team Size and Team Management</div>\n\t<div class="row-block-text"> Not being able to outsource properly</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Spaghetti Code</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>');
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
     
     }).call(this);
     
@@ -1409,7 +1452,11 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
+<<<<<<< HEAD
 },{}],26:[function(require,module,exports){
+=======
+},{}],11:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1449,7 +1496,11 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
+<<<<<<< HEAD
       __out.push('<div class="row-block-head" >\n\n\t<div  class="row-block-title">What makes you faster?</div>\n\n\t<blockquote class="row-block-text">Faster as an Organization, not only as a developer!</blockquote>\n\n \t<div class="row-block-text row-block-text__large">What\'s the Goal?</div>\n\n\t<div class="row-block-text"> Build and Release an App in a week</div>\n\n\t<div class="row-block-text"> Update and Release in minutes</div>\n\n</div>\n\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Code Structure and Architecture - Highly Engineered </div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block " >\n\n\t<div class="row-block-title">Build in terms of isolated Components</div>\n\t <div class="row-block-text">Parts Communicate via events</div>\n\n\t<div class="row-block-text"> Quickly reuse Apps and Components</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\t<div class="row-block-title"> Developer Tools</div>\n\n\t<div class="row-block-text"> Local Development with your preferred tools</div>\n\n\t<div class="row-block-text"> One Click URL Preview </div>\n\n\t<div class="row-block-text"> One Click Production Release</div>\n\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple" >\n\t<div class="row-block-title"> Standardization and Automation</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-50"></div>\n\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>\n</div>');
+=======
+      __out.push('<div class="row-block row-block-head" >\n\n\t<div class="container">\n\t\t<div  class="row-block-title">What makes you faster?</div>\n\n\t<blockquote class="row-block-text">Faster as an Organization, not only as a developer!</blockquote>\n\n \t<div class="row-block-text row-block-text__large"><i>What\'s the Goal?</i></div>\n \t<div class="padding-end-50"></div>\n\t</div>\n\n\t\n\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-title">Build and Release an App in a week</div>\n\t<div class="row-block-text"> Update and Release in minutes</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Code Structure and Architecture</div>\n\t<div class="row-block-text">Highly Engineered</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block " >\n\n\t<div class="row-block-title">Build in terms of isolated Components</div>\n\t <div class="row-block-text">Parts Communicate via events</div>\n\n\t<div class="row-block-text"> Quickly reuse Apps and Components</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\t<div class="row-block-title"> Developer Tools</div>\n\n\t<div class="row-block-text"> Local Development with your preferred tools</div>\n\n\t<div class="row-block-text"> One Click URL Preview </div>\n\n\t<div class="row-block-text"> One Click Production Release</div>\n\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple" >\n\t<div class="row-block-title"> Standardization and Automation</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-50"></div>\n\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-defaul btn-block">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>');
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
     
     }).call(this);
     
@@ -1457,7 +1508,12 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
+<<<<<<< HEAD
 },{}],27:[function(require,module,exports){
+=======
+},{}],12:[function(require,module,exports){
+var LayoutManager = require("./code/managers/layout");
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 var MenuController = require("./code/controller/menu")
 MenuController.appendTo("._3vot");
 MenuController.hide();
@@ -1467,6 +1523,7 @@ var LayoutManager = require("./code/managers/layout");
 LayoutManager.register(".slide-container");
 
 
+<<<<<<< HEAD
 
 var Account = require("./code/model/Account");
 var Type = require("./code/model/Type");
@@ -1474,55 +1531,45 @@ Account.bind("refresh", function(){
 	Type.buildFromAccounts(Account.all());
 })
 },{"./code/controller/menu":11,"./code/managers/layout":15,"./code/model/Account":16,"./code/model/Type":17}],28:[function(require,module,exports){
+=======
+},{"./code/controller/menu":2,"./code/managers/layout":6}],13:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 
-var VFR= require("clay-vfr")
+/**
+ * Expose `parse`.
+ */
 
-var Ajax = function(eventName, model, options){
-  if(eventName == "create") return Ajax.post.call(this, model,options )
-  else if(eventName == "update") return Ajax.put.call(this, model,options )
-  else if(eventName == "destroy") return Ajax.del.call(this, model,options )
-  
-  //Sho
-  var params = model;
-  if(eventName == "query") return Ajax.query.call(this, params, options);  
-  else if(eventName == "read") return Ajax.get.call(this, params, options);
-  else if(eventName == "api") return Ajax.api.call(this, params, options);
+module.exports = parse;
 
-}
+/**
+ * Tests for browser support.
+ */
 
-Ajax.api = function(){
-  if(!this.ajax.namespace) this.ajax.namespace = ""
-  var args = Array.prototype.slice(arguments);
-  var remoteAction = args[0];
-  var callArgs = []
-  for (var i = 1; i < args.length-1; i++) {
-    callArgs.push(args[i]);
-  };
-  options = args[args.length-1];
-  if(typeof remoteAction != "string" ) throw "First Argument should be the Remote Action (string)"
-  if(options == remoteAction) options = {};
+var div = document.createElement('div');
+// Setup
+div.innerHTML = '  <link/><table></table><a href="/a">a</a><input type="checkbox"/>';
+// Make sure that link elements get serialized correctly by innerHTML
+// This requires a wrapper element in IE
+var innerHTMLBug = !div.getElementsByTagName('link').length;
+div = undefined;
 
-  var send = VFR( this.namespace + remoteAction, options, options.nullok || false );
-  return send.apply( VFR, callArgs );
-}
+/**
+ * Wrap map from jquery.
+ */
 
-Ajax.query = function(params, options){
-  if(!this.ajax.namespace) this.ajax.namespace =""
+var map = {
+  legend: [1, '<fieldset>', '</fieldset>'],
+  tr: [2, '<table><tbody>', '</tbody></table>'],
+  col: [2, '<table><tbody></tbody><colgroup>', '</colgroup></table>'],
+  // for script/link/style tags to work in IE6-8, you have to wrap
+  // in a div with a non-whitespace character in front, ha!
+  _default: innerHTMLBug ? [1, 'X<div>', '</div>'] : [0, '', '']
+};
 
-  var pctEncodeSpaces = true;
-  var params = encodeURIComponent(params).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, pctEncodeSpaces ? '%20' : '+');
-  
-  var send = VFR(this.ajax.namespace + "ThreeVotApiController.handleRest" );
-  return send( "get", "/query?query=" + params , "" )
-  .then(function(results){ 
-    for (var i = results.length - 1; i >= 0; i--) {
-      results[i].id = results[i].Id
-      delete results[i].Id;
-    };
-    return results;
-   })
-}
+map.td =
+map.th = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
 
+<<<<<<< HEAD
 Ajax.get = function(id, options){
   if(!this.ajax.namespace) this.ajax.namespace =""
 
@@ -3571,6 +3618,8 @@ var map = {
 map.td =
 map.th = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
 
+=======
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 map.option =
 map.optgroup = [1, '<select multiple="multiple">', '</select>'];
 
@@ -3644,7 +3693,11 @@ function parse(html, doc) {
   return fragment;
 }
 
+<<<<<<< HEAD
 },{}],36:[function(require,module,exports){
+=======
+},{}],14:[function(require,module,exports){
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 module.exports = getSize
 
 function getSize(element) {
@@ -3680,4 +3733,8 @@ function parse(prop) {
   return parseFloat(prop) || 0
 }
 
+<<<<<<< HEAD
 },{}]},{},[27])
+=======
+},{}]},{},[12])
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed

@@ -1,8 +1,9 @@
-<div class="row-block-head" >
-
+<div class="row-block row-block-head" >
+	
 	<div  class="row-block-title">What makes you slow?</div>
 
 	<blockquote class="row-block-text">Let's identify what's dragging us!</blockquote>
+	<div class="padding-end-100"></div>
 
 </div>
 
@@ -10,7 +11,6 @@
 
 	<div class="row-block-title">Developing from a Browser</div>
 	<div class="row-block-text">Server Side Compile</div>
-
 	<div class="padding-end-100"></div>
 
 </div>
@@ -28,7 +28,7 @@
 
 	<div class="row-block-title">Lack of Answers, Tools & Support for Developers</div>
 
-	<div class="padding-end-100"></div>
+	<div class="padding-end-50"></div>
 
 </div>
 
@@ -36,16 +36,12 @@
 
 	<div class="row-block-title">Proprietary Technology & Frameworks</div>
 	<div class="row-block-text"> - Waiting for Changes</div>
-
-	<div class="padding-end-100"></div>
-
 </div>
 
 <div class="row-block row-block__" >
 
-	<div class="row-block-title"> Scripts & Development Process
+	<div class="row-block-title"> Scripts & Development Process</div>
 	<div class="row-block-text"> Working outside your core</div>
-
 	<div class="padding-end-100"></div>
 
 </div>
@@ -68,7 +64,9 @@
 </div>
 
 <div class="navigation-block">
-			<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>
 
-		<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>
+			<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>
+
+
+		<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>
 </div>

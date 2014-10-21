@@ -1,44 +1,24 @@
 /*Fonts*/ 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 /*GLOBAL*/ 
 
 body,html{
+	margin: 0;
 }
 
-body{
+
+#_3vot_blank {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
 	font-weight: 300;
-  background-repeat: no-repeat;
-  background-color: #fff;
-  background-size: 263px 224px;
-  background-position:  center 54px;
-  margin: 0px;
+  	background-repeat: no-repeat;
+  	background-color: #fff;
+  	background-size: 263px 224px;
+  	background-position:  center 54px;
+  	margin: 0px;
 }
 
-small{
-	color: #883;
-}
-
-.color-dark{
-	color: #333 !important;;
-}
-
-.align-left{
-	text-align: left !important;
-}
-
-.padding-bottom-0{
-	padding-bottom: 0px !important;
-}
-
-.padding-top-0{
-	padding-top: 0px !important;
-}
-
-.info-color{
-	color: #888 !important;
-}
 
 
 /* Compact Layout */ 
@@ -65,8 +45,8 @@ small{
 	-webkit-transition: left 0.4s , opacity 0.5s; /* For Safari 3.1 to 6.0 */
   transition: left 0.4s , opacity 0.5s;
 	
-	padding: 108px 0px;
-	padding-bottom: 0px;
+	/*padding: 108px 0px;*/
+	/*padding-bottom: 0px;*/
 }
 
 /*Components*/ 
@@ -83,15 +63,15 @@ small{
 }
 
   .top-header{
-	  height: 28px;
 	  background-color:  rgb(235, 235, 235);
-	  padding: 5px 10px;
+	  padding: 1vh;
+	  font-size: 1em;
   }
 
 
 	.header{
 		background-color: #fff;	
-		height: 80px;
+		height: 4em;
 		position: relative;
 	}
 
@@ -99,15 +79,11 @@ small{
 			width: 200px;
 			float: right;
 			background-color: rgb(0, 157, 220);
-			height: 80px;
+			height: 100%;
 			text-align: center;
-			line-height: 80px;
-			font-style: 40px;
+			font-size: 2em;
 			color: #fff;
-			position: absolute;
-			right: 0px;
-			top: 0px;
-			bottom: 0px;
+			line-height: 1.8em;
 		}
 
 		.header-message {
@@ -119,153 +95,171 @@ small{
 		}
 
 		.header-title{
-			font-size: 30px;
-			line-height: 80px;
-			color: rgb(33,33,33);
-			text-align: center;
-			border-top: #fff 3px solid;
+			/*line-height: 80px;*/
+			margin-left: 1em;
 			display: inline-block;
-			margin-left: 20px;
 		}
+			.header-title img {
+				max-height: 4em;
+				padding: .5em 0;
+			}
 
 
 
 .text-list{
 	display: block;
 }
+	._3vot ul {
+		padding: 1em 0;
+	}
 
 	.text-list li{
-		font-size: 19px;
-		margin-left: 20px;
-		margin-bottom: 7px;
+		font-size: 3em;
+		margin: .2em 0
 	}
 
 		.text-list__large li:first-child {
-			margin-top: 20px;
+			margin-top: 2em;
 		}
 
 		.text-list__large li{
-			font-size: 30px;
+			font-size: 3em;
 			margin-bottom: 30px;
 		}
 
+.text-white {
+	color: #fff;
+}
+.text-clay {
+	color: #FA816B;
+}
 
-
-.row-block-head{
+/*.row-block-head{
 	min-height: 500px;
+	padding: 5em 0 5em;
+}*/
 
+.row-block-head .row-block-title {
+	padding: 1em 0 .5em;
+}
+
+.row-block-text i {
+	font-weight: 600;
+	margin: 1.5em 0 0;
+	display: block;
 }
 
 .row-block{
 	overflow: hidden;
+	padding: 10em 3em 10em;
+	/*min-height: 500px;*/
 }
 
 	.row-block__blue{
-		background-color: rgb(22, 50, 92);
+		background-color: #0097DC;
 		color: #fff;
-
 	}
 
 	.row-block__purple{
-		background-color: rgb(87, 80, 149);
+		background-color: #7F8DE1;
 		color: #fff;
 	}
 
 	.row-block-title{
-		padding-top: 50px;
-		font-size: 50px;
+		padding-top: 0.5em;
+		font-size: 6em;
 		text-align: center;
-		padding-bottom: 30px;
+		padding-bottom: .5em;
+		font-weight:600;
+		
+	}
+	.text-shadow{
+		text-shadow: 0 2px 6px rgba(0,0,0,.5);
 	}
 
 	blockquote.row-block-text{
-		font-size: 25px;
 		text-align: center;
-		padding-bottom: 30px;		
+		border: none;	
+	}
+	._3vot blockquote {
+		font-size: 3em;
+		padding: 0 4em;
 	}
 
 	.row-block-text{
-		font-size: 35px;
+		font-size: 3.5em;
 		text-align: center;
-		padding-bottom: 30px;
+		padding-bottom: 0;
 	}
-
+	
 	.row-block-text__large{
-		font-size: 35px;
+		font-size: 4em;
 	}
 
 	.row-block-text__small{
-		font-size: 25px;
-	}
-
-	.row-block-pointer{
-		display: inline-block;
-		width: 100px;
-				font-size: 25px;
-		text-align: center;
-		padding-bottom: 30px;	
+		font-size: 3em;
 	}
 
 	.padding-end-200{
 		display: block;
-		height: 200px;
+		height: 16em;
 	}
 
 	.padding-end-100{
 		display: block;
-		height: 200px;
+		height: 8em;
 	}
 
 	.padding-end-50{
 		display: block;
-		height: 50px;
+		height: 4em;
 	}	
 
-/* Modifiers */ 
+/*Buttons*/
 
-.home{
-	background-image: url("{3vot}/images/home_splash.png");
-	background-repeat: no-repeat;
-	background-size: 100% 528px;
-	background-position: 0px 80px;
+._3vot .btn {
+	text-transform: uppercase;
 }
 
-.dreamforce{
-	background-image: url("{3vot}/images/home_splash.png");
-	background-repeat: no-repeat;
-	background-size: 100% 528px;
-	background-position: 0px 80px;
+._3vot .btn-default{
+	background-color: #fff;
+	-webkit-box-shadow: 0 0 6px rgba(0,0,0,.2);
+	box-shadow: 0 0 6px rgba(0,0,0,.2);
+	color: #0097DC;
+}
+._3vot .btn-lg {
+	padding: 2em ;
 }
 
-.sidebar{
-	background-color: rgb(22, 50, 92);
-	height: 500px;
+._3vot .btn-warning {
+	background-color: #FCB95B;
+}
+._3vot .btn-success {
+	background-color: #4BC076;
 }
 
-.content{
-	height: 500px;
-}
-
-.row-block-pointer__up{
-	width: 100%;
-	margin: 0px;
-	padding-top: 0px;
-	-ms-transform: rotate(-90deg); /* IE 9 */
-  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-  transform: rotate(-90deg);
-  position: absolute;
-  top: 30px;
-}
-.rotate-90{
-	display: block;
-	-ms-transform: rotate(90deg); /* IE 9 */
-  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-  transform: rotate(90deg);
-  ;
-}
-
+<<<<<<< HEAD
 .alert.active {
   background-color: #dff0d8 !important;
   border-color: #d6e9c6 !important;
   color: #3c763d !important;
+=======
+/* Modifiers */ 
+
+.home{
+	background-image: url("{3vot}/images/background1.jpg");
+	background-repeat: no-repeat;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
+	background-position: top center ;
 }
+
+.dreamforce{
+	background-image: url("{3vot}/images/background2.jpg");
+	background-repeat: no-repeat;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
+	background-position: top center  ;
+>>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
+}
+
