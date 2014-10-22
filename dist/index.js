@@ -614,22 +614,33 @@ function List(container, label, object, type){
 };
 
 List.prototype.itemClick = function(e){
-	var target = e.currentTarget;
-
+	var target = e.target;
 	if( !target.classList.contains("filter-item") ) target = target.parentNode
-console.log(e)
 	if( !target.classList.contains("filter-item") ) return false
-
-		
-	var els = this.el.querySelectorAll(".filter-item")
-	for (var i = els.length - 1; i >= 0; i--) {
-		els[i].classList.remove("active")
-	};
 	
+	if(target.classList.contains("active")){
+		e.target.classList.remove("active");
+		this.removeFilter( e.target.dataset.type );
+	}
+	else{
+		e.target.classList.add("active");
+		this.addFilter( e.target.dataset.type );
+	}
 
-	e.target.classList.add("active");
+	this.object.trigger("FILTER")
+}
 
+List.prototype.addFilter = function(value){
+	if(!this.object.filters) this.object.filters = [];
+	this.object.filters.push( { type: this.type, value: value  } )
+}
 
+List.prototype.removeFilter = function(value){
+	var filters = this.object.filters;
+	for (var i = filters.length - 1; i >= 0; i--) {
+		var filter = filters[i];
+		if(filter.type == this.type && filter.value == value) this.object.filters.splice(i, 1);
+	};
 }
 
 
@@ -990,6 +1001,30 @@ function Live(name){
 
 	var caseContainer = this.el.querySelector(".case_list");
 //	this.caseListController = new ListController( caseContainer , "case", Case, ["Subject"], "", "Subject" );
+
+	Account.bind("FILTER",function(){
+
+		var accounts = Account.select( filterFunction );
+
+		function filterFunction(account){
+						
+		console.log(Account.filters);
+
+			if(Account.filters.length == 0) return true;
+
+			var result = false;
+			var filters = Account.filters;
+			for (var i = filters.length - 1; i >= 0; i--) {
+				var filter = filters[i];
+				if(account[filter.type] == filter.value) result = true;
+			
+			};
+			return result;
+		}
+		_this.accountListController.render(accounts);
+
+	})
+
 
 	Account.bind("SELECTED",function(account){
 		_this.onAccountSelected(account);
