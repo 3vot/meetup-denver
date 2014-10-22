@@ -1,54 +1,72 @@
-
 <div class="view <%= @ %>">
-	
-
 	<div class="view-body">
-
-		<div class="row-block row-block__white">
-			<div class="row-block-head">
-				<div class="row-block-icon"><img src="{3vot}/images/icon-livecode-yellow.png" alt=""></div>
-				<div class="row-block-title">Live Coding</div>
-				<blockquote class="row-block-text">Check it out!</blockquote>
-			</div>
-	
-		</div>
-
-		<div class="row-block row-block__purple padding-bottom-0">
-			<div  class="row-block-title">How are my accounts divided?</div>
-			<div class="container">
-				<div class="clearfix"></div>
-			</div>
-			<!--//container-->
-		</div>
-
-		<div class="" >
-			<div class="">
-				<div class="col-md-3  row-block__darkblue" style="height: 500px;">
-					<div class="">Filters</div>
-					<div class="row type_list"></div>
-					<div class="row industry_list"></div>
-				</div>
-
-				<div class="col-md-9 content" style="height: 500px;overflow: scroll;">
-					<div class="">
-						<div class="account_list"></div>
-					</div>
-				</div>
-			</div>
-		
-			<div class="clearfix"></div>
-		</div>
-
-		<!-- <div class="row-block row-block__blue">
-			<div class="row-block-text row-block-text__large"></div>
-		
-		</div> -->
-
-		<div class="navigation-block">
-			<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>
-			<!-- <a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a> -->
-		</div>
-	</div>
-	<!-- //ViewBody-->
+	<div class="row-block-head row-block row-block__white" >
+	<div class="row-block-icon"><img src="{3vot}/images/icon-livecode-yellow.png" alt=""></div>
+	<div  class="row-block-title">Live Coding</div>
+	<blockquote class="row-block-text">Check it out!</blockquote>
 </div>
-<!-- //View-->
+
+<div class="row-block row-block__purple padding-bottom-0">
+	<div  class="row-block-title  "> How are my accounts divided?</div>
+<div class="container">
+
+	
+
+		<div class="clearfix"></div>
+	</div>
+
+</div>
+
+<div class=" padding-top-0" >
+
+	<div class="row" >
+		
+		<div class="col-md-3  row-block__darkblue  " style="height: 500px; overflow:auto">
+	
+		<div class="text-white" style="padding: 7%;font-size: 3em;">Filters</div>
+
+			<div class="row type_list">
+		
+			</div>
+
+			<div class="row industry_list">
+		
+			</div>
+
+
+		</div>
+
+		<div class="col-md-9 content" style="height: 500px;overflow: scroll;">
+			<div class="">
+				
+				<div class="account_list"></div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="clearfix"></div>
+
+</div>
+
+
+
+
+
+
+<!-- <div class="row-block row-block__blue">
+	<div class="row-block-text row-block-text__large"></div>
+
+</div> -->
+
+<div class="navigation-block">
+	<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>
+</div>
+
+
+
+	</div>
+
+
+</div>

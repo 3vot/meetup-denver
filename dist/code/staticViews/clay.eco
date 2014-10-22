@@ -1,7 +1,12 @@
 <div class="row-block row-block-head row-block__white" >
-	<iframe width="560" height="315" src="//www.youtube.com/embed/-1YAVgQw1ls?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 	<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>
 	<blockquote class="row-block-text">Available in App Exchange</blockquote>
+</div>
+
+<div class="row-block row-block__blue">
+	<div class="videoWrapper">
+		<iframe width="560" height="315" src="//www.youtube.com/embed/-1YAVgQw1ls?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+	</div>
 </div>
 
 <div class="row-block row-block__blue">
@@ -23,6 +28,7 @@
 
 
 <div class="row-block row-block row-block__blue">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-plus30-yellow.png" alt=""></div>
 	<div  class="row-block-title"> Over 30 Development Solutions in one Package </div>
 	
 	<div  class="container">

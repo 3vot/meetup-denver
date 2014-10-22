@@ -1,5 +1,5 @@
 	<div class="row-block-header row-block-header__small ">
-		<%= @label %>
+		<strong><%= @label %></strong>
 	</div>
 
 <% for item in @items: %>

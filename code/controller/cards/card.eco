@@ -1,8 +1,11 @@
-<div class="col-md-3">
+<div class="col-md-12">
 	<div  class="thumbnail" data-type="<%= @Name %>">
-		<%= @Name %><br/>
-		<%= @Description %>
-		<%= @AnnualRevenue %>
-		<%= @BillingState %>
+		<h2><%= @Name %></h2>
+		<div>
+			<%= @Description %> 
+			<%= @AnnualRevenue %>
+			<%= @BillingState %>
+		</div>
+		
 	</div>
 </div>

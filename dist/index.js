@@ -396,27 +396,27 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('<div class="col-md-3">\n\t<div  class="thumbnail" data-type="');
+      __out.push('<div class="col-md-12">\n\t<div  class="thumbnail" data-type="');
     
       __out.push(__sanitize(this.Name));
     
-      __out.push('">\n\t\t');
+      __out.push('">\n\t\t<h2>');
     
       __out.push(__sanitize(this.Name));
     
-      __out.push('<br/>\n\t\t');
+      __out.push('</h2>\n\t\t<div>\n\t\t\t');
     
       __out.push(__sanitize(this.Description));
     
-      __out.push('\n\t\t');
+      __out.push(' \n\t\t\t');
     
       __out.push(__sanitize(this.AnnualRevenue));
     
-      __out.push('\n\t\t');
+      __out.push('\n\t\t\t');
     
       __out.push(__sanitize(this.BillingState));
     
-      __out.push('\n\t</div>\n</div>');
+      __out.push('\n\t\t</div>\n\t\t\n\t</div>\n</div>');
     
     }).call(this);
     
@@ -688,11 +688,11 @@ module.exports = function(__obj) {
     (function() {
       var item, _i, _len, _ref;
     
-      __out.push('\t<div class="row-block-header row-block-header__small ">\n\t\t');
+      __out.push('\t<div class="row-block-header row-block-header__small ">\n\t\t<strong>');
     
       __out.push(__sanitize(this.label));
     
-      __out.push('\n\t</div>\n\n');
+      __out.push('</strong>\n\t</div>\n\n');
     
       _ref = this.items;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -1166,11 +1166,11 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('\n<div class="view ');
+      __out.push('<div class="view ');
     
       __out.push(__sanitize(this));
     
-      __out.push('">\n\t\n\n\t<div class="view-body">\n\n\t\t<div class="row-block row-block__white">\n\t\t\t<div class="row-block-head">\n\t\t\t\t<div class="row-block-icon"><img src="{3vot}/images/icon-livecode-yellow.png" alt=""></div>\n\t\t\t\t<div class="row-block-title">Live Coding</div>\n\t\t\t\t<blockquote class="row-block-text">Check it out!</blockquote>\n\t\t\t</div>\n\t\n\t\t</div>\n\n\t\t<div class="row-block row-block__purple padding-bottom-0">\n\t\t\t<div  class="row-block-title">How are my accounts divided?</div>\n\t\t\t<div class="container">\n\t\t\t\t<div class="clearfix"></div>\n\t\t\t</div>\n\t\t\t<!--//container-->\n\t\t</div>\n\n\t\t<div class="" >\n\t\t\t<div class="">\n\t\t\t\t<div class="col-md-3  row-block__darkblue" style="height: 500px;">\n\t\t\t\t\t<div class="">Filters</div>\n\t\t\t\t\t<div class="row type_list"></div>\n\t\t\t\t\t<div class="row industry_list"></div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="col-md-9 content" style="height: 500px;overflow: scroll;">\n\t\t\t\t\t<div class="">\n\t\t\t\t\t\t<div class="account_list"></div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\n\t\t\t<div class="clearfix"></div>\n\t\t</div>\n\n\t\t<!-- <div class="row-block row-block__blue">\n\t\t\t<div class="row-block-text row-block-text__large"></div>\n\t\t\n\t\t</div> -->\n\n\t\t<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\t\t\t<!-- <a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a> -->\n\t\t</div>\n\t</div>\n\t<!-- //ViewBody-->\n</div>\n<!-- //View-->');
+      __out.push('">\n\t<div class="view-body">\n\t<div class="row-block-head row-block row-block__white" >\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-livecode-yellow.png" alt=""></div>\n\t<div  class="row-block-title">Live Coding</div>\n\t<blockquote class="row-block-text">Check it out!</blockquote>\n</div>\n\n<div class="row-block row-block__purple padding-bottom-0">\n\t<div  class="row-block-title  "> How are my accounts divided?</div>\n<div class="container">\n\n\t\n\n\t\t<div class="clearfix"></div>\n\t</div>\n\n</div>\n\n<div class=" padding-top-0" >\n\n\t<div class="row" >\n\t\t\n\t\t<div class="col-md-3  row-block__darkblue  " style="height: 500px; overflow:auto">\n\t\n\t\t<div class="text-white" style="padding: 7%;font-size: 3em;">Filters</div>\n\n\t\t\t<div class="row type_list">\n\t\t\n\t\t\t</div>\n\n\t\t\t<div class="row industry_list">\n\t\t\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class="col-md-9 content" style="height: 500px;overflow: scroll;">\n\t\t\t<div class="">\n\t\t\t\t\n\t\t\t\t<div class="account_list"></div>\n\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div class="clearfix"></div>\n\n</div>\n\n\n\n\n\n\n<!-- <div class="row-block row-block__blue">\n\t<div class="row-block-text row-block-text__large"></div>\n\n</div> -->\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n</div>\n\n\n\n\t</div>\n\n\n</div>');
     
     }).call(this);
     
@@ -1600,7 +1600,7 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('<div class="row-block row-block-head row-block__white" >\n\t<iframe width="560" height="315" src="//www.youtube.com/embed/-1YAVgQw1ls?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>\n\t<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>\n\t<blockquote class="row-block-text">Available in App Exchange</blockquote>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-speed-yellow.png" alt=""></div>\n\t<div  class="row-block-title"> SPEED is our motivation</div>\n\t<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-components-blue.png" alt=""></div>\n\t<div  class="row-block-title"> It\'s based on components </div>\n\t<div class="row-block-text row-block-text__large"><span class="text-clay">But it\'s not a Framework</span>, is larger than that</div>\n\t<div class="row-block-text row-block-text__large">an open source architecture</div>\n\n\t<div class="row-block-text row-block-text__large">where you can build your own framework</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block row-block__blue">\n\t<div  class="row-block-title"> Over 30 Development Solutions in one Package </div>\n\t\n\t<div  class="container">\n\t\t\n\t\t<div class="row development">\n\t\t\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Build Locally</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Staging Preview</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> One Click Deploy</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Object Oriented</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Modular - Component Based</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>\n\n\t\t</div>\n\t</div>\n\n\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-deploy-yellow.png" alt=""></div>\n\t<div  class="row-block-title"> Push to Deploy</div>\n\t<div class="row-block-text row-block-text__large">Promote fast iterations & short cycles</div>\n\n\t<div class="row-block-text">\n\t\t<div class="btn btn-warning btn-lg">Preview in Staging</div>\n\n\t\t<div class="btn btn-success btn-lg">Deploy to Production</div>\n\t</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-production-yellow.png" alt=""></div>\n\t<div  class="row-block-title"> Clay it\'s an architecture to build your production line</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-instantorder-blue.png" alt=""></div>\n\t<div  class="row-block-title"> Ordered and Instant Production Release</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n\n</div>\n');
+      __out.push('<div class="row-block row-block-head row-block__white" >\n\t<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>\n\t<blockquote class="row-block-text">Available in App Exchange</blockquote>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div class="videoWrapper">\n\t\t<iframe width="560" height="315" src="//www.youtube.com/embed/-1YAVgQw1ls?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>\n\t</div>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-speed-yellow.png" alt=""></div>\n\t<div  class="row-block-title"> SPEED is our motivation</div>\n\t<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-components-blue.png" alt=""></div>\n\t<div  class="row-block-title"> It\'s based on components </div>\n\t<div class="row-block-text row-block-text__large"><span class="text-clay">But it\'s not a Framework</span>, is larger than that</div>\n\t<div class="row-block-text row-block-text__large">an open source architecture</div>\n\n\t<div class="row-block-text row-block-text__large">where you can build your own framework</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block row-block__blue">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-plus30-yellow.png" alt=""></div>\n\t<div  class="row-block-title"> Over 30 Development Solutions in one Package </div>\n\t\n\t<div  class="container">\n\t\t\n\t\t<div class="row development">\n\t\t\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Build Locally</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Staging Preview</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> One Click Deploy</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Object Oriented</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> Modular - Component Based</div></div>\n\t\t\t<div class="col-md-6 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>\n\n\t\t</div>\n\t</div>\n\n\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-deploy-yellow.png" alt=""></div>\n\t<div  class="row-block-title"> Push to Deploy</div>\n\t<div class="row-block-text row-block-text__large">Promote fast iterations & short cycles</div>\n\n\t<div class="row-block-text">\n\t\t<div class="btn btn-warning btn-lg">Preview in Staging</div>\n\n\t\t<div class="btn btn-success btn-lg">Deploy to Production</div>\n\t</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-production-yellow.png" alt=""></div>\n\t<div  class="row-block-title"> Clay it\'s an architecture to build your production line</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-instantorder-blue.png" alt=""></div>\n\t<div  class="row-block-title"> Ordered and Instant Production Release</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n\n</div>\n');
     
     }).call(this);
     
