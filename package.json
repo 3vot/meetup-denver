@@ -36,6 +36,8 @@
 		"browserify-eco": "~0.2.4",
 		"domify": "~1.3.1",
 		"element-size": "~1.1.1",
-		"events": "~1.0.2"
+		"events": "~1.0.2",
+		"clay-model": "0.0.4",
+		"clay-model-vfr": "0.0.10"
 	}
 }

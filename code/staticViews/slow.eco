@@ -8,7 +8,7 @@
 </div>
 
 <div class="row-block row-block__blue" >
-
+	<div class="row-block-icon"><img src="{3vot}/images/icon-browserdev-red.png" alt=""></div>
 	<div class="row-block-title">Developing from a Browser</div>
 	<div class="row-block-text">Server Side Compile</div>
 	<div class="padding-end-100"></div>
@@ -16,30 +16,27 @@
 </div>
 
 <div class="row-block row-block" >
-
+	<div class="row-block-icon"><img src="{3vot}/images/icon-isolated-blue.png" alt=""></div>
 	<div class="row-block-title">Isolation from the World Community</div>
 	<div class="row-block-text"> - No change - No Innovation</div>
-
 	<div class="padding-end-100"></div>
 
 </div>
 
 <div class="row-block row-block__purple" >
-
+	<div class="row-block-icon"><img src="{3vot}/images/icon-lacksupport-red.png" alt=""></div>
 	<div class="row-block-title">Lack of Answers, Tools & Support for Developers</div>
-
 	<div class="padding-end-50"></div>
-
 </div>
 
 <div class="row-block row-block__blue" >
-
+	<div class="row-block-icon"><img src="{3vot}/images/icon-law-red.png" alt=""></div>
 	<div class="row-block-title">Proprietary Technology & Frameworks</div>
 	<div class="row-block-text"> - Waiting for Changes</div>
 </div>
 
 <div class="row-block row-block__" >
-
+	
 	<div class="row-block-title"> Scripts & Development Process</div>
 	<div class="row-block-text"> Working outside your core</div>
 	<div class="padding-end-100"></div>
@@ -47,7 +44,7 @@
 </div>
 
 <div class="row-block row-block__purple" >
-
+	<div class="row-block-icon"><img src="{3vot}/images/icon-team-red.png" alt=""></div>
 	<div class="row-block-title"> Team Size and Team Management</div>
 	<div class="row-block-text"> Not being able to outsource properly</div>
 
@@ -56,7 +53,7 @@
 </div>
 
 <div class="row-block row-block__blue" >
-
+	<div class="row-block-icon"><img src="{3vot}/images/icon-spaghetti-red.png" alt=""></div>
 	<div class="row-block-title">Spaghetti Code</div>
 
 	<div class="padding-end-100"></div>

@@ -1,15 +1,18 @@
 <div class="row-block row-block-head row-block__white" >
+	<iframe width="560" height="315" src="//www.youtube.com/embed/-1YAVgQw1ls?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 	<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>
 	<blockquote class="row-block-text">Available in App Exchange</blockquote>
 </div>
 
 <div class="row-block row-block__blue">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-speed-yellow.png" alt=""></div>
 	<div  class="row-block-title"> SPEED is our motivation</div>
 	<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div>
 	<div class="padding-end-100"></div>
 </div>
 
 <div class="row-block row-block">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-components-blue.png" alt=""></div>
 	<div  class="row-block-title"> It's based on components </div>
 	<div class="row-block-text row-block-text__large"><span class="text-clay">But it's not a Framework</span>, is larger than that</div>
 	<div class="row-block-text row-block-text__large">an open source architecture</div>
@@ -24,14 +27,14 @@
 	
 	<div  class="container">
 		
-		<div class="row">
+		<div class="row development">
 		
-			<div class="col-md-3 "><div class="thumbnail"> Build Locally</div></div>
-			<div class="col-md-3 "><div class="thumbnail"> Staging Preview</div></div>
-			<div class="col-md-3 "><div class="thumbnail"> One Click Deploy</div></div>
-			<div class="col-md-3 "><div class="thumbnail"> Object Oriented</div></div>
-			<div class="col-md-3 "><div class="thumbnail"> Modular - Component Based</div></div>
-			<div class="col-md-3 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>
+			<div class="col-md-6 "><div class="thumbnail"> Build Locally</div></div>
+			<div class="col-md-6 "><div class="thumbnail"> Staging Preview</div></div>
+			<div class="col-md-6 "><div class="thumbnail"> One Click Deploy</div></div>
+			<div class="col-md-6 "><div class="thumbnail"> Object Oriented</div></div>
+			<div class="col-md-6 "><div class="thumbnail"> Modular - Component Based</div></div>
+			<div class="col-md-6 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>
 
 		</div>
 	</div>
@@ -42,18 +45,20 @@
 
 
 <div class="row-block row-block__blue">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-deploy-yellow.png" alt=""></div>
 	<div  class="row-block-title"> Push to Deploy</div>
 	<div class="row-block-text row-block-text__large">Promote fast iterations & short cycles</div>
 
 	<div class="row-block-text">
-		<div class="btn btn-large btn-warning">Preview in Staging</div>
+		<div class="btn btn-warning btn-lg">Preview in Staging</div>
 
-		<div class="btn btn-large btn-success">Deploy to Production</div>
+		<div class="btn btn-success btn-lg">Deploy to Production</div>
 	</div>
 	<div class="padding-end-200"></div>
 </div>
 
 <div class="row-block row-block__purple">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-production-yellow.png" alt=""></div>
 	<div  class="row-block-title"> Clay it's an architecture to build your production line</div>
 	<div class="row-block-text">All apps are the same species </div>
 	<div class="row-block-text">All apps are created equal</div>
@@ -64,6 +69,7 @@
 
 
 <div class="row-block row-block__purple">
+	<div class="row-block-icon"><img src="{3vot}/images/icon-instantorder-blue.png" alt=""></div>
 	<div  class="row-block-title"> Ordered and Instant Production Release</div>
 	<div class="padding-end-100"></div>
 </div>

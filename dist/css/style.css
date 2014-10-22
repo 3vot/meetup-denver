@@ -215,7 +215,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		text-align: center;
 	}
 	.row-block-icon img {
-		max-height: 6em;
+		max-height: 10em;
 	}
 
 	.row-block-title{
@@ -367,6 +367,15 @@ font-size: 20px;
 	color: #65CAE4;
 }
 
+
+._3vot .development .thumbnail {
+	color: #fff;
+	font-size: 3em;
+	padding: 1em;
+	background-color: #65CAE4;
+	border: none;
+	font-weight: 400;
+}
 /* Modifiers */ 
 
 .home{

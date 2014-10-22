@@ -28,7 +28,7 @@
 </div>
 
 <div class="row-block " >
-	
+	<div class="row-block-icon"><img src="{3vot}/images/icon-lego-purple.png" alt=""></div>
 	<div class="row-block-title">Build in terms of isolated Components</div>
 	 <div class="row-block-text">Parts Communicate via events</div>
 
@@ -39,15 +39,12 @@
 </div>
 
 <div class="row-block row-block__blue" >
-
+	
+	<div class="row-block-icon"><img src="{3vot}/images/icon-dev-yellow.png" alt=""></div>
 	<div class="row-block-title"> Developer Tools</div>
-
 	<div class="row-block-text"> Local Development with your preferred tools</div>
-
 	<div class="row-block-text"> One Click URL Preview </div>
-
 	<div class="row-block-text"> One Click Production Release</div>
-
 	<div class="padding-end-100"></div>
 </div>
 
