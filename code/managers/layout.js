@@ -1,6 +1,7 @@
 var Size = require("element-size")
 var MenuController = require("../controller/menu")
 var StaticController = require("../controller/static");
+var LiveController = require("../controller/live")
 
 var EmbedController = require("../controller/embed")
 
@@ -50,6 +51,7 @@ LayoutManager.register = function(containerSelector){
   //Register Static Controllers
   var keys = Object.keys(staticControllerViews);
   for( key in keys ){
+    if (!keys.hasOwnProperty(key)) continue
     var key = keys[key];
     var view = staticControllerViews[ key ]
     
@@ -58,14 +60,11 @@ LayoutManager.register = function(containerSelector){
   }
 
   //Register Dynamic Components
-<<<<<<< HEAD
   LayoutManager.registerView( "live", new LiveController("live") )
 
   LayoutManager.registerView( "embed", new EmbedController("embed") )
 
 
-=======
->>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
   MenuController.on("next", function(){ 
     if(currentControllerIndex == controllersKeys.length -1) return false;
     currentControllerIndex++;

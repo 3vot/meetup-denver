@@ -7,7 +7,7 @@ function Static(view, name){
 	this.el = domify( Layout(name) );
 	
 	
-	var body = this.el.querySelector(".view-body").innerHTML = view();
+	this.el.querySelector(".view-body").innerHTML = view();
 }
 
 module.exports = Static;

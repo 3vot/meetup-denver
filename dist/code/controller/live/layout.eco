@@ -3,8 +3,7 @@
 	
 
 	<div class="view-body">
-		
-<<<<<<< HEAD
+
 
 	<div class="row-block-head" >
 	<div  class="row-block-title">Live Coding</div>
@@ -47,13 +46,17 @@
 
 		<div class="col-md-3  row-block row- case_list">
 				
-				<h3>Actions</h3><br/>
+				<h3>Actions</h3>
 
-				<a class="btn btn-danger">Close</a><br/>
+				<div class="">
 
-				<a class="btn btn-warning">Escalate</a><br/>
+					<a class="btn btn-danger">Close</a><br/>
 
-				<a class="btn btn-warning">Email Customer</a><br/>
+					<a class="btn btn-warning">Escalate</a><br/>
+
+					<a class="btn btn-warning">Email Customer</a><br/>
+
+				</div>
 
 			</div>
 
@@ -84,9 +87,7 @@
 </div>
 
 
-=======
->>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
-		
+
 	</div>
 
 

@@ -13,7 +13,7 @@
 	<div  class="row-block-title"> It's based on components </div>
 	<div class="row-block-text row-block-text__large"><span class="text-clay">But it's not a Framework</span>, is larger than that</div>
 	<div class="row-block-text row-block-text__large">an open source architecture</div>
-<<<<<<< HEAD
+
 	<div class="row-block-text row-block-text__large">where you can build your own framework</div>
 	<div class="padding-end-200"></div>
 </div>
@@ -62,13 +62,6 @@
 	<div class="padding-end-200"></div>
 </div>
 
-<div class="navigation-block">
-	<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>
-	<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>
-=======
-	<div class="row-block-text row-block-text__large">where you can build your framework</div>
-	<div class="padding-end-100"></div>
-</div>
 
 <div class="row-block row-block__purple">
 	<div  class="row-block-title"> Ordered and Instant Production Release</div>
@@ -78,5 +71,5 @@
 <div class="navigation-block">
 	<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>
 	<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>
->>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
+
 </div>

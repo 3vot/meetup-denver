@@ -1,5 +1,5 @@
 /*Fonts*/ 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 /*GLOBAL*/ 
 
@@ -238,12 +238,7 @@ body,html{
 	background-color: #4BC076;
 }
 
-<<<<<<< HEAD
-.alert.active {
-  background-color: #dff0d8 !important;
-  border-color: #d6e9c6 !important;
-  color: #3c763d !important;
-=======
+
 /* Modifiers */ 
 
 .home{
@@ -260,6 +255,5 @@ body,html{
 	-webkit-background-size: 100% auto;
 	background-size: 100% auto;
 	background-position: top center  ;
->>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
 }
 

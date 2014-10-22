@@ -64,11 +64,9 @@
 </div>
 
 <div class="navigation-block">
-<<<<<<< HEAD
-			<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>
-=======
+
 			<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>
->>>>>>> 035bae3486103f2fc16991c138bd2a90077e5eed
+
 
 		<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>
 </div>
