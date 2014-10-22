@@ -356,6 +356,179 @@ process.chdir = function (dir) {
 };
 
 },{}],3:[function(require,module,exports){
+module.exports = function(__obj) {
+  if (!__obj) __obj = {};
+  var __out = [], __capture = function(callback) {
+    var out = __out, result;
+    __out = [];
+    callback.call(this);
+    result = __out.join('');
+    __out = out;
+    return __safe(result);
+  }, __sanitize = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else if (typeof value !== 'undefined' && value != null) {
+      return __escape(value);
+    } else {
+      return '';
+    }
+  }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
+  __safe = __obj.safe = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else {
+      if (!(typeof value !== 'undefined' && value != null)) value = '';
+      var result = new String(value);
+      result.ecoSafe = true;
+      return result;
+    }
+  };
+  if (!__escape) {
+    __escape = __obj.escape = function(value) {
+      return ('' + value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    };
+  }
+  (function() {
+    (function() {
+      __out.push('<div class="col-md-3">\n\t<div  class="thumbnail" data-type="');
+    
+      __out.push(__sanitize(this.Name));
+    
+      __out.push('">\n\t\t');
+    
+      __out.push(__sanitize(this.Name));
+    
+      __out.push('<br/>\n\t\t');
+    
+      __out.push(__sanitize(this.Description));
+    
+      __out.push('\n\t\t');
+    
+      __out.push(__sanitize(this.AnnualRevenue));
+    
+      __out.push('\n\t\t');
+    
+      __out.push(__sanitize(this.BillingState));
+    
+      __out.push('\n\t</div>\n</div>');
+    
+    }).call(this);
+    
+  }).call(__obj);
+  __obj.safe = __objSafe, __obj.escape = __escape;
+  return __out.join('');
+}
+},{}],4:[function(require,module,exports){
+var domify = require("domify");
+var Layout = require("./layout");
+var CardItem = require("./card");
+
+function List(container, name, object, fields, viewType, label){
+	var _this = this;
+	var standardFields = ["id", "name"];
+	var object_name = object.className
+	this.ViewType = CardItem;
+	this.label = label;
+
+	if(fields) standardFields = standardFields.concat( fields );
+	if(!name) name = "selected";
+
+	this.object = object;
+	this.name = name;
+	this.container = container;
+	this.el = domify( Layout() );
+	this.container.appendChild(this.el);
+
+	this.el.onclick = function(e){ _this.itemClick(e) }
+
+	object.bind("refresh", function(){ _this.render() } )
+
+	if(object.ajax){
+		object.query("select " + standardFields.join(", ") + " from " + object_name  )
+		.fail( function(err){ console.log(err.stack) } ) 
+	}
+}
+
+List.prototype.render = function(items){
+	this.el.innerHTML = "";
+	items = items || this.object.all();
+	for (var i = items.length - 1; i >= 0; i--) {
+		var item = items[i];
+		if(this.label) item.label = this.label;
+		this.el.innerHTML += this.ViewType(item);
+	};
+}
+
+List.prototype.itemClick = function(e){
+	var els = this.el.querySelectorAll(".list_item")
+	for (var i = els.length - 1; i >= 0; i--) {
+		els[i].classList.remove("active")
+	};
+	
+	e.target.classList.add("active");
+
+	var id = e.target.dataset.id
+	var item = this.object.find(id);
+	this.object.selected = item;
+	this.object.trigger("SELECTED", item);
+}
+
+
+module.exports = List;
+},{"./card":3,"./layout":5,"domify":41}],5:[function(require,module,exports){
+module.exports = function(__obj) {
+  if (!__obj) __obj = {};
+  var __out = [], __capture = function(callback) {
+    var out = __out, result;
+    __out = [];
+    callback.call(this);
+    result = __out.join('');
+    __out = out;
+    return __safe(result);
+  }, __sanitize = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else if (typeof value !== 'undefined' && value != null) {
+      return __escape(value);
+    } else {
+      return '';
+    }
+  }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
+  __safe = __obj.safe = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else {
+      if (!(typeof value !== 'undefined' && value != null)) value = '';
+      var result = new String(value);
+      result.ecoSafe = true;
+      return result;
+    }
+  };
+  if (!__escape) {
+    __escape = __obj.escape = function(value) {
+      return ('' + value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    };
+  }
+  (function() {
+    (function() {
+      __out.push('\t\t<ul class="list-group color-dark list">\n\t\t\t\t\n\t\t\t\t\n\n\t\t\t</ul>');
+    
+    }).call(this);
+    
+  }).call(__obj);
+  __obj.safe = __objSafe, __obj.escape = __escape;
+  return __out.join('');
+}
+},{}],6:[function(require,module,exports){
 var domify = require("domify");
 
 
@@ -373,7 +546,7 @@ function Embed(name){
 
 
 module.exports =  Embed;
-},{"./layout":4,"domify":35}],4:[function(require,module,exports){
+},{"./layout":7,"domify":41}],7:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -421,11 +594,175 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],5:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
+var domify = require("domify");
+var Layout = require("./layout");
+
+
+function List(container, label, object, type){
+	var _this = this;
+
+	this.container = container;
+	this.object = object;
+	this.type= type;
+	var items = this.object.filter(type);
+	this.el = domify( Layout({label:label, items: items} ));
+	this.container.appendChild(this.el);
+
+	this.container.onclick = function(e){ _this.itemClick(e) }
+
+};
+
+List.prototype.itemClick = function(e){
+	var target = e.currentTarget;
+
+	if( !target.classList.contains("filter-item") ) target = target.parentNode
+console.log(e)
+	if( !target.classList.contains("filter-item") ) return false
+
+		
+	var els = this.el.querySelectorAll(".filter-item")
+	for (var i = els.length - 1; i >= 0; i--) {
+		els[i].classList.remove("active")
+	};
+	
+
+	e.target.classList.add("active");
+
+
+}
+
+
+module.exports = List;
+},{"./layout":9,"domify":41}],9:[function(require,module,exports){
+module.exports = function(__obj) {
+  if (!__obj) __obj = {};
+  var __out = [], __capture = function(callback) {
+    var out = __out, result;
+    __out = [];
+    callback.call(this);
+    result = __out.join('');
+    __out = out;
+    return __safe(result);
+  }, __sanitize = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else if (typeof value !== 'undefined' && value != null) {
+      return __escape(value);
+    } else {
+      return '';
+    }
+  }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
+  __safe = __obj.safe = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else {
+      if (!(typeof value !== 'undefined' && value != null)) value = '';
+      var result = new String(value);
+      result.ecoSafe = true;
+      return result;
+    }
+  };
+  if (!__escape) {
+    __escape = __obj.escape = function(value) {
+      return ('' + value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    };
+  }
+  (function() {
+    (function() {
+      var item, _i, _len, _ref;
+    
+      __out.push('\t<div class="row-block-header row-block-header__small ">\n\t\t');
+    
+      __out.push(__sanitize(this.label));
+    
+      __out.push('\n\t</div>\n\n');
+    
+      _ref = this.items;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        item = _ref[_i];
+        __out.push('\n\t<div data-type="');
+        __out.push(__sanitize(item));
+        __out.push('" class="filter-item">\n\t\t');
+        __out.push(__sanitize(item));
+        __out.push('\n\t\t<span class="circle"></span>\n\t</div>\n\n');
+      }
+    
+      __out.push('\n');
+    
+    }).call(this);
+    
+  }).call(__obj);
+  __obj.safe = __objSafe, __obj.escape = __escape;
+  return __out.join('');
+}
+},{}],10:[function(require,module,exports){
+module.exports = function(__obj) {
+  if (!__obj) __obj = {};
+  var __out = [], __capture = function(callback) {
+    var out = __out, result;
+    __out = [];
+    callback.call(this);
+    result = __out.join('');
+    __out = out;
+    return __safe(result);
+  }, __sanitize = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else if (typeof value !== 'undefined' && value != null) {
+      return __escape(value);
+    } else {
+      return '';
+    }
+  }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
+  __safe = __obj.safe = function(value) {
+    if (value && value.ecoSafe) {
+      return value;
+    } else {
+      if (!(typeof value !== 'undefined' && value != null)) value = '';
+      var result = new String(value);
+      result.ecoSafe = true;
+      return result;
+    }
+  };
+  if (!__escape) {
+    __escape = __obj.escape = function(value) {
+      return ('' + value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    };
+  }
+  (function() {
+    (function() {
+      __out.push('<div class="col-md-3">\n\t<div  class="thumbnail" data-type="');
+    
+      __out.push(__sanitize(this.Name));
+    
+      __out.push('">');
+    
+      __out.push(__sanitize(this.Name));
+    
+      __out.push('</div>\n</div>');
+    
+    }).call(this);
+    
+  }).call(__obj);
+  __obj.safe = __objSafe, __obj.escape = __escape;
+  return __out.join('');
+}
+},{}],11:[function(require,module,exports){
 var domify = require("domify");
 var Layout = require("./layout");
 var ListItem = require("./item");
 var TabItem = require("./tab");
+var CardItem = require("./card");
+
 
 function List(container, name, object, fields, viewType, label){
 	var _this = this;
@@ -434,6 +771,8 @@ function List(container, name, object, fields, viewType, label){
 	this.ViewType = ListItem;
 	this.label = label;
 	if(viewType == "tab") this.ViewType = TabItem
+	if(viewType == "card") this.ViewType = CardItem
+
 
 	if(fields) standardFields = standardFields.concat( fields );
 	if(!name) name = "selected";
@@ -482,7 +821,7 @@ List.prototype.itemClick = function(e){
 
 
 module.exports = List;
-},{"./item":6,"./layout":7,"./tab":8,"domify":35}],6:[function(require,module,exports){
+},{"./card":10,"./item":12,"./layout":13,"./tab":14,"domify":41}],12:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -550,55 +889,9 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],7:[function(require,module,exports){
-module.exports = function(__obj) {
-  if (!__obj) __obj = {};
-  var __out = [], __capture = function(callback) {
-    var out = __out, result;
-    __out = [];
-    callback.call(this);
-    result = __out.join('');
-    __out = out;
-    return __safe(result);
-  }, __sanitize = function(value) {
-    if (value && value.ecoSafe) {
-      return value;
-    } else if (typeof value !== 'undefined' && value != null) {
-      return __escape(value);
-    } else {
-      return '';
-    }
-  }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-  __safe = __obj.safe = function(value) {
-    if (value && value.ecoSafe) {
-      return value;
-    } else {
-      if (!(typeof value !== 'undefined' && value != null)) value = '';
-      var result = new String(value);
-      result.ecoSafe = true;
-      return result;
-    }
-  };
-  if (!__escape) {
-    __escape = __obj.escape = function(value) {
-      return ('' + value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-    };
-  }
-  (function() {
-    (function() {
-      __out.push('\t\t<ul class="list-group color-dark list">\n\t\t\t\t\n\t\t\t\t\n\n\t\t\t</ul>');
-    
-    }).call(this);
-    
-  }).call(__obj);
-  __obj.safe = __objSafe, __obj.escape = __escape;
-  return __out.join('');
-}
-},{}],8:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+module.exports=require(5)
+},{}],14:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -654,7 +947,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],9:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 var domify = require("domify");
 
 var Account = require("../../model/account");
@@ -665,7 +958,10 @@ var Type = require("../../model/type");
 var Layout = require("./layout");
 
 var ListController = require("../list");
+var FilterController = require("../filter");
 
+
+var CardController = require("../cards");
 
 
 function Live(name){
@@ -674,16 +970,26 @@ function Live(name){
 	this.el = domify( Layout(name) );
 
 	var accountContainer = this.el.querySelector(".account_list");
-	this.accountListController = new ListController( accountContainer , "account", Account, ["Type"]  );
+	this.accountListController = new CardController( accountContainer , "account", Account, ["Type","Industry","Description","AccountSource", "AnnualRevenue"]  );
 
-	var typeContainer = this.el.querySelector(".type_list");
-	this.typeListController = new ListController( typeContainer , "type", Type, [""], "tab" );
 
-	var contactContainer = this.el.querySelector(".contact_list");
-	this.contactListController = new ListController( contactContainer , "contact", Contact, [""] );
+	Account.bind("refresh",function(){
+
+
+		var typeContainer = _this.el.querySelector(".type_list");
+		this.typeListController = new FilterController( typeContainer , 'Types',Account, "Type"  );
+
+		var industryContainer = _this.el.querySelector(".industry_list");
+		this.industryListController = new FilterController( industryContainer ,"Industries", Account, "Industry"  );
+
+
+		var contactContainer = _this.el.querySelector(".contact_list");
+	//	this.contactListController = new ListController( contactContainer , "contact", Contact, [""] );
+
+	})
 
 	var caseContainer = this.el.querySelector(".case_list");
-	this.caseListController = new ListController( caseContainer , "case", Case, ["Subject"], "", "Subject" );
+//	this.caseListController = new ListController( caseContainer , "case", Case, ["Subject"], "", "Subject" );
 
 	Account.bind("SELECTED",function(account){
 		_this.onAccountSelected(account);
@@ -784,7 +1090,7 @@ Live.prototype.onAccountTypeSelected = function(target){
 }
 
 module.exports = Live;
-},{"../../model/account":18,"../../model/case":19,"../../model/contact":20,"../../model/type":21,"../list":5,"./layout":10,"domify":35}],10:[function(require,module,exports){
+},{"../../model/account":24,"../../model/case":25,"../../model/contact":26,"../../model/type":27,"../cards":4,"../filter":8,"../list":11,"./layout":16,"domify":41}],16:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -828,7 +1134,7 @@ module.exports = function(__obj) {
     
       __out.push(__sanitize(this));
     
-      __out.push('">\n\t\n\n\t<div class="view-body">\n\n\n\t<div class="row-block-head" >\n\t<div  class="row-block-title">Live Coding</div>\n\t<blockquote class="row-block-text">Check it out!</blockquote>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title padding-bottom-0 "> How are my accounts divided?</div>\n\n<div class="container">\n\n\t<div class="row type_list">\n\t\t\n\t</div>\n\n\t\t<div class="clearfix"></div>\n\t</div>\n\n</div>\n\n<div class="row-block">\n\n\t<div class="row">\n\t\t\n\t\t<div class="col-md-3  row-block row-block__blue account_list">\n\t\n\t\t</div>\n\t\t<div class="col-md-9 content">\n\t\t\n\t\t<div class="row">\n\n\t\t\t<div class="col-md-3  row-block row- contact_list">\n\t\t\t\t<h3>Contacts</h3>\n\t\t\t</div>\n\n\t\t\t<div class="col-md-6  row-block row- case_list">\n\t\t\t\t<h3>Cases</h3>\n\n\t\t\t</div>\n\n\t\t<div class="col-md-3  row-block row- case_list">\n\t\t\t\t\n\t\t\t\t<h3>Actions</h3>\n\n\t\t\t\t<div class="">\n\n\t\t\t\t\t<a class="btn btn-danger">Close</a><br/>\n\n\t\t\t\t\t<a class="btn btn-warning">Escalate</a><br/>\n\n\t\t\t\t\t<a class="btn btn-warning">Email Customer</a><br/>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t</div>\n\n\t\t<div class="clearfix"></div>\n\n\t</div>\n\n\n\t<div class="padding-end-200"></div>\n</div>\n\n\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title"> Ordered and Instant Production Release</div>\n\t<div class="row-block-text row-block-text__large"></div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>\n</div>\n\n\n\n\t</div>\n\n\n</div>');
+      __out.push('">\n\t\n\n\t<div class="view-body">\n\n\n\t<div class="row-block-head" >\n\t<div  class="row-block-title">Live Coding</div>\n\t<blockquote class="row-block-text">Check it out!</blockquote>\n</div>\n\n<div class="row-block row-block__purple padding-bottom-0">\n\t<div  class="row-block-title  "> How are my accounts divided?</div>\n\n<div class="container">\n\n\t\n\n\t\t<div class="clearfix"></div>\n\t</div>\n\n</div>\n\n<div class=" padding-top-0" >\n\n\t<div class="row" >\n\t\t\n\t\t<div class="col-md-3  row-block__darkblue  " style="height: 500px;">\n\t\n\t\t<div class="row-block-header padding-bottom-0">Filters</div>\n\n\t\t\t<div class="row type_list">\n\t\t\n\t\t\t</div>\n\n\t\t\t<div class="row industry_list">\n\t\t\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class="col-md-9 content" style="height: 500px;overflow: scroll;">\n\t\t\t<div class="">\n\t\t\t\t\n\t\t\t\t<div class="account_list"></div>\n\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div class="clearfix"></div>\n\n</div>\n\n\n\n\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-text row-block-text__large"></div>\n\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-primary">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-primary">Continue</a>\n</div>\n\n\n\n\t</div>\n\n\n</div>');
     
     }).call(this);
     
@@ -836,7 +1142,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],11:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 var Layout = require("./layout")
 var domify = require("domify")
 var EventEmitter = require('events').EventEmitter;
@@ -866,7 +1172,7 @@ function onButtonClick(e){
 
 
 module.exports = Menu
-},{"./layout":12,"domify":35,"events":1}],12:[function(require,module,exports){
+},{"./layout":18,"domify":41,"events":1}],18:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -914,7 +1220,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],13:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 var domify = require("domify");
 
 var Layout = require("./layout");
@@ -928,7 +1234,7 @@ function Static(view, name){
 }
 
 module.exports = Static;
-},{"./layout":14,"domify":35}],14:[function(require,module,exports){
+},{"./layout":20,"domify":41}],20:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -980,7 +1286,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],15:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 var Size = require("element-size")
 var MenuController = require("../controller/menu")
 var StaticController = require("../controller/static");
@@ -1153,26 +1459,31 @@ function getPath(){
 
 
 module.exports = LayoutManager;
-},{"../controller/embed":3,"../controller/live":9,"../controller/menu":11,"../controller/static":13,"../staticViews/clay":22,"../staticViews/dreamforce":23,"../staticViews/home":24,"../staticViews/slow":25,"../staticViews/speed":26,"element-size":36}],16:[function(require,module,exports){
+},{"../controller/embed":6,"../controller/live":15,"../controller/menu":17,"../controller/static":19,"../staticViews/clay":28,"../staticViews/dreamforce":29,"../staticViews/home":30,"../staticViews/slow":31,"../staticViews/speed":32,"element-size":42}],22:[function(require,module,exports){
 var _3Model = require("clay-model")
 var Ajax = require("clay-model-vfr");
 
-Account = _3Model.setup("Account", ["Name","Type"]);
+Account = _3Model.setup("Account", ["Name","Type","AccountSource","AnnualRevenue","BillingState","Industry"]);
 Account.ajax = Ajax;
 
-Account.getTypes = function(){
+Account.filter ={}
+
+Account.filter = function(attribute){
 	var types = [];
 	var accounts = Account.all();
 	for (var i = accounts.length - 1; i >= 0; i--) {
 		var account = accounts[i]
-		if( account.Type && types.indexOf( account.Type ) == -1 ) types.push( account.Type );
+		if( account[attribute] && types.indexOf( account[attribute] ) == -1 ) types.push( account[attribute] );
 	};
 
 	return types;
 }
 
+
+
+
 module.exports= Account
-},{"clay-model":32,"clay-model-vfr":28}],17:[function(require,module,exports){
+},{"clay-model":38,"clay-model-vfr":34}],23:[function(require,module,exports){
 var _3Model = require("clay-model")
 
 Type = _3Model.setup("Type", ["Name","Accounts","Color"]);
@@ -1193,9 +1504,9 @@ Type.buildFromAccounts = function(accounts){
 }
 
 module.exports= Type;
-},{"clay-model":32}],18:[function(require,module,exports){
-module.exports=require(16)
-},{"clay-model":32,"clay-model-vfr":28}],19:[function(require,module,exports){
+},{"clay-model":38}],24:[function(require,module,exports){
+module.exports=require(22)
+},{"clay-model":38,"clay-model-vfr":34}],25:[function(require,module,exports){
 var _3Model = require("clay-model")
 var Ajax = require("clay-model-vfr");
 
@@ -1203,7 +1514,7 @@ Case = _3Model.setup("Case", ["Name","Subject","ContactId"]);
 Case.ajax = Ajax;
 
 module.exports= Case
-},{"clay-model":32,"clay-model-vfr":28}],20:[function(require,module,exports){
+},{"clay-model":38,"clay-model-vfr":34}],26:[function(require,module,exports){
 var _3Model = require("clay-model")
 var Ajax = require("clay-model-vfr");
 
@@ -1211,9 +1522,9 @@ Contact = _3Model.setup("Case", ["Name"]);
 Contact.ajax = Ajax;
 
 module.exports= Contact;
-},{"clay-model":32,"clay-model-vfr":28}],21:[function(require,module,exports){
-module.exports=require(17)
-},{"clay-model":32}],22:[function(require,module,exports){
+},{"clay-model":38,"clay-model-vfr":34}],27:[function(require,module,exports){
+module.exports=require(23)
+},{"clay-model":38}],28:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1253,7 +1564,7 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('<div class="row-block row-block-head" >\n\t<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>\n\t<blockquote class="row-block-text">Available in App Exchange</blockquote>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> SPEED is our motivation</div>\n\t<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block">\n\t<div  class="row-block-title"> It\'s based on components </div>\n\t<div class="row-block-text row-block-text__large"><span class="text-clay">But it\'s not a Framework</span>, is larger than that</div>\n\t<div class="row-block-text row-block-text__large">an open source architecture</div>\n\n\t<div class="row-block-text row-block-text__large">where you can build your own framework</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block row-block__blue">\n\t<div  class="row-block-title"> Over 30 Development Solutions in one Package </div>\n\t\n\t<div  class="container">\n\t\t\n\t\t<div class="row">\n\t\t\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Build Locally</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Staging Preview</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> One Click Deploy</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Object Oriented</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Modular - Component Based</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>\n\n\t\t</div>\n\t</div>\n\n\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> Push to Deploy</div>\n\t<div class="row-block-text row-block-text__large">Promote fast iterations & short cycles</div>\n\n\t<div class="row-block-text">\n\t\t<div class="btn btn-large btn-warning">Preview in Staging</div>\n\n\t\t<div class="btn btn-large btn-success">Deploy to Production</div>\n\t</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title"> Clay it\'s an architecture to build your production line</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title"> Ordered and Instant Production Release</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n\n</div>\n');
+      __out.push('<div class="row-block row-block-head row-block__white" >\n\t<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>\n\t<blockquote class="row-block-text">Available in App Exchange</blockquote>\n</div>\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> SPEED is our motivation</div>\n\t<div class="row-block-text row-block-text__large">Clay is a Development Tool to build Apps 10X Faster</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block">\n\t<div  class="row-block-title"> It\'s based on components </div>\n\t<div class="row-block-text row-block-text__large"><span class="text-clay">But it\'s not a Framework</span>, is larger than that</div>\n\t<div class="row-block-text row-block-text__large">an open source architecture</div>\n\n\t<div class="row-block-text row-block-text__large">where you can build your own framework</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block row-block__blue">\n\t<div  class="row-block-title"> Over 30 Development Solutions in one Package </div>\n\t\n\t<div  class="container">\n\t\t\n\t\t<div class="row">\n\t\t\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Build Locally</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Staging Preview</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> One Click Deploy</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Object Oriented</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> Modular - Component Based</div></div>\n\t\t\t<div class="col-md-3 "><div class="thumbnail"> 100,000 Open Source Libs ( NPM )</div></div>\n\n\t\t</div>\n\t</div>\n\n\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> Push to Deploy</div>\n\t<div class="row-block-text row-block-text__large">Promote fast iterations & short cycles</div>\n\n\t<div class="row-block-text">\n\t\t<div class="btn btn-large btn-warning">Preview in Staging</div>\n\n\t\t<div class="btn btn-large btn-success">Deploy to Production</div>\n\t</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title"> Clay it\'s an architecture to build your production line</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-200"></div>\n</div>\n\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title"> Ordered and Instant Production Release</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n\n</div>\n');
     
     }).call(this);
     
@@ -1261,7 +1572,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],23:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1301,7 +1612,7 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('<div class="row-block-head  row-block text-white text-shadow" >\n\t<div  class="row-block-title">Dreamforce Recap</div>\n\t<blockquote class="row-block-text">Secret to digital success: Speed and Javascript</blockquote>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div  class="row-block-title"> "Move fast!</div>\n\t<div class="row-block-text row-block-text__large">Those taking too long to consider things, will find themselves left behind"</div>\n\t<div class="row-block-text row-block-text__large"><i><small>Jeroen Tas, Phillips</small></i></div>\n\t<!-- <div class="padding-end-200"></div> -->\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-title">It\'s not how great your apps is</div>\n\t<div class="row-block-text row-block-text__large">is how fast you can make it better</div>\n\t<div class="row-block-text row-block-text__large "><i><small>Adam Seligman, Salesforce Developer</small></i></div>\n\t<!-- <div class="padding-end-200"></div> -->\n\n</div>\n\n<div class="row-block">\n\t<div  class="row-block-title"> Best apps are updated weekly!</div>\n\t<div class="row-block-text row-block-text__large">Tip: Increase iterations, decrease cycle times  </div>\n\t<div class="row-block-title"><a class="btn btn-warning btn-lg">Click to preview</a> <a class="btn btn-success btn-lg">Click to deploy button</a></div>\n\t<!-- <div class="padding-end-200"></div> -->\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-title">You don’t have to be a software company to build apps</div>\n\t <div class="row-block-text row-block-text__large"><i><small>Mark Benioff, Salesforce</small></i></div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div  class="row-block-title">Visualforce Lightning</div>\n\t<div class="row-block-text row-block-text__large">A Javascript Component Framework for Salesforce.com</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>\n');
+      __out.push('<div class="row-block-head  row-block text-white text-shadow" >\n\t<div  class="row-block-title">Dreamforce Recap</div>\n\t<blockquote class="row-block-text">Secret to digital success: Speed and Javascript</blockquote>\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-quote-blue.png" alt=""></div>\n\t<div  class="row-block-title"> Move fast!</div>\n\t<div class="row-block-text row-block-text__large">Those taking too long to consider things, will find themselves left behind"</div>\n\t<div class="row-block-text row-block-text__large"><i><small>Jeroen Tas, Phillips</small></i></div>\n\t<!-- <div class="padding-end-200"></div> -->\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-quote-purple.png" alt=""></div>\n\t<div class="row-block-title">It\'s not how great your apps is</div>\n\t<div class="row-block-text row-block-text__large">is how fast you can make it better</div>\n\t<div class="row-block-text row-block-text__large "><i><small>Adam Seligman, Salesforce Developer</small></i></div>\n\t<!-- <div class="padding-end-200"></div> -->\n\n</div>\n\n<div class="row-block row-block__white">\n\t<div  class="row-block-title"> Best apps are updated weekly!</div>\n\t<div class="row-block-text row-block-text__large">Tip: Increase iterations, decrease cycle times  </div>\n\t<div class="row-block-title"><a class="btn btn-warning btn-lg">Click to preview</a> <a class="btn btn-success btn-lg">Click to deploy button</a></div>\n\t<!-- <div class="padding-end-200"></div> -->\n</div>\n\n\n<div class="row-block row-block__blue">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-quote-blue.png" alt=""></div>\n\t<div class="row-block-title">You don’t have to be a software company to build apps</div>\n\t <div class="row-block-text row-block-text__large"><i><small>Mark Benioff, Salesforce</small></i></div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-lightning-yellow.png" alt=""></div>\n\t<div  class="row-block-title">Visualforce Lightning</div>\n\t<div class="row-block-text row-block-text__large">A Javascript Component Framework for Salesforce.com</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="navigation-block">\n\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>\n');
     
     }).call(this);
     
@@ -1309,7 +1620,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],24:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1357,7 +1668,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],25:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1397,7 +1708,7 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('<div class="row-block row-block-head" >\n\t\n\t<div  class="row-block-title">What makes you slow?</div>\n\n\t<blockquote class="row-block-text">Let\'s identify what\'s dragging us!</blockquote>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Developing from a Browser</div>\n\t<div class="row-block-text">Server Side Compile</div>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block" >\n\n\t<div class="row-block-title">Isolation from the World Community</div>\n\t<div class="row-block-text"> - No change - No Innovation</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title">Lack of Answers, Tools & Support for Developers</div>\n\n\t<div class="padding-end-50"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Proprietary Technology & Frameworks</div>\n\t<div class="row-block-text"> - Waiting for Changes</div>\n</div>\n\n<div class="row-block row-block__" >\n\n\t<div class="row-block-title"> Scripts & Development Process</div>\n\t<div class="row-block-text"> Working outside your core</div>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title"> Team Size and Team Management</div>\n\t<div class="row-block-text"> Not being able to outsource properly</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Spaghetti Code</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="navigation-block">\n\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>');
+      __out.push('<div class="row-block row-block-head row-block__white" >\n\t\n\t<div  class="row-block-title">What makes you slow?</div>\n\n\t<blockquote class="row-block-text">Let\'s identify what\'s dragging us!</blockquote>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Developing from a Browser</div>\n\t<div class="row-block-text">Server Side Compile</div>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block" >\n\n\t<div class="row-block-title">Isolation from the World Community</div>\n\t<div class="row-block-text"> - No change - No Innovation</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title">Lack of Answers, Tools & Support for Developers</div>\n\n\t<div class="padding-end-50"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Proprietary Technology & Frameworks</div>\n\t<div class="row-block-text"> - Waiting for Changes</div>\n</div>\n\n<div class="row-block row-block__" >\n\n\t<div class="row-block-title"> Scripts & Development Process</div>\n\t<div class="row-block-text"> Working outside your core</div>\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__purple" >\n\n\t<div class="row-block-title"> Team Size and Team Management</div>\n\t<div class="row-block-text"> Not being able to outsource properly</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Spaghetti Code</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="navigation-block">\n\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-default btn-block">Go Back</a>\n\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>');
     
     }).call(this);
     
@@ -1405,7 +1716,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],26:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 module.exports = function(__obj) {
   if (!__obj) __obj = {};
   var __out = [], __capture = function(callback) {
@@ -1445,7 +1756,7 @@ module.exports = function(__obj) {
   }
   (function() {
     (function() {
-      __out.push('<div class="row-block row-block-head" >\n\n\t<div class="container">\n\t\t<div  class="row-block-title">What makes you faster?</div>\n\n\t<blockquote class="row-block-text">Faster as an Organization, not only as a developer!</blockquote>\n\n \t<div class="row-block-text row-block-text__large"><i>What\'s the Goal?</i></div>\n \t<div class="padding-end-50"></div>\n\t</div>\n\n\t\n\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-title">Build and Release an App in a week</div>\n\t<div class="row-block-text"> Update and Release in minutes</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title">Code Structure and Architecture</div>\n\t<div class="row-block-text">Highly Engineered</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block " >\n\n\t<div class="row-block-title">Build in terms of isolated Components</div>\n\t <div class="row-block-text">Parts Communicate via events</div>\n\n\t<div class="row-block-text"> Quickly reuse Apps and Components</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\t<div class="row-block-title"> Developer Tools</div>\n\n\t<div class="row-block-text"> Local Development with your preferred tools</div>\n\n\t<div class="row-block-text"> One Click URL Preview </div>\n\n\t<div class="row-block-text"> One Click Production Release</div>\n\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple" >\n\t<div class="row-block-title"> Standardization and Automation</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-50"></div>\n\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-defaul btn-block">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>');
+      __out.push('<div class="row-block row-block-head row-block__white" >\n\n\t<div class="container">\n\t\t<div  class="row-block-title">What makes you faster?</div>\n\n\t<blockquote class="row-block-text">Faster as an Organization, not only as a developer!</blockquote>\n\n \t<div class="row-block-text row-block-text__large text-primary"><i>What\'s the Goal?</i></div>\n \t<div class="padding-end-50"></div>\n\t</div>\n\n\t\n\n</div>\n\n<div class="row-block row-block__purple">\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-clock-purple.png" alt=""></div>\n\t<div class="row-block-title">Build and Release an App in a week</div>\n\t<div class="row-block-text"> Update and Release in minutes</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__blue" >\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-coding-yellow.png" alt=""></div>\n\t<div class="row-block-title">Code Structure and Architecture</div>\n\t<div class="row-block-text">Highly Engineered</div>\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block " >\n\t\n\t<div class="row-block-title">Build in terms of isolated Components</div>\n\t <div class="row-block-text">Parts Communicate via events</div>\n\n\t<div class="row-block-text"> Quickly reuse Apps and Components</div>\n\n\t<div class="padding-end-100"></div>\n\n</div>\n\n<div class="row-block row-block__blue" >\n\n\t<div class="row-block-title"> Developer Tools</div>\n\n\t<div class="row-block-text"> Local Development with your preferred tools</div>\n\n\t<div class="row-block-text"> One Click URL Preview </div>\n\n\t<div class="row-block-text"> One Click Production Release</div>\n\n\t<div class="padding-end-100"></div>\n</div>\n\n<div class="row-block row-block__purple" >\n\t<div class="row-block-icon"><img src="{3vot}/images/icon-automation-blue.png" alt=""></div>\n\t<div class="row-block-title"> Standardization and Automation</div>\n\t<div class="row-block-text">All apps are the same species </div>\n\t<div class="row-block-text">All apps are created equal</div>\n\t<div class="row-block-text">All apps are updated equal</div>\n\t<div class="row-block-text">Each app is unique</div>\n\t<div class="padding-end-50"></div>\n\n</div>\n\n<div class="navigation-block">\n\t\t\t<a data-event="back" class="btn btn-lg pull-left btn-defaul btn-block">Go Back</a>\n\n\t\t<a data-event="next" class="btn btn-lg pull-right btn-default btn-block">Continue</a>\n</div>');
     
     }).call(this);
     
@@ -1453,7 +1764,7 @@ module.exports = function(__obj) {
   __obj.safe = __objSafe, __obj.escape = __escape;
   return __out.join('');
 }
-},{}],27:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 var MenuController = require("./code/controller/menu")
 MenuController.appendTo("._3vot");
 MenuController.hide();
@@ -1469,7 +1780,7 @@ var Type = require("./code/model/Type");
 Account.bind("refresh", function(){
 	Type.buildFromAccounts(Account.all());
 })
-},{"./code/controller/menu":11,"./code/managers/layout":15,"./code/model/Account":16,"./code/model/Type":17}],28:[function(require,module,exports){
+},{"./code/controller/menu":17,"./code/managers/layout":21,"./code/model/Account":22,"./code/model/Type":23}],34:[function(require,module,exports){
 
 var VFR= require("clay-vfr")
 
@@ -1582,7 +1893,7 @@ Ajax.generateURL = function() {
 module.exports = Ajax;
 
 
-},{"clay-vfr":29}],29:[function(require,module,exports){
+},{"clay-vfr":35}],35:[function(require,module,exports){
 var Q = require("kew");
 
 
@@ -1671,7 +1982,7 @@ VisualforceRemoting.standardOptions= {
 
 module.exports = VisualforceRemoting;
 
-},{"kew":30}],30:[function(require,module,exports){
+},{"kew":36}],36:[function(require,module,exports){
 var process=require("__browserify_process");
 /**
  * An object representing a "promise" for a future value
@@ -2468,7 +2779,7 @@ module.exports = {
   , setNextTickFunction: setNextTickFunction
 }
 
-},{"__browserify_process":2}],31:[function(require,module,exports){
+},{"__browserify_process":2}],37:[function(require,module,exports){
 // Generated by CoffeeScript 1.7.1
 (function() {
   var Events, trim,
@@ -2674,7 +2985,7 @@ module.exports = {
 
 }).call(this);
 
-},{}],32:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 var Events = require("./events");
 
 var Module = require("./module");
@@ -3418,7 +3729,7 @@ Model.prototype.emit = Model.prototype.trigger;
 
 __hasProp = {}.hasOwnProperty,
 __slice = [].slice;
-},{"../utils/model":34,"./events":31,"./module":33}],33:[function(require,module,exports){
+},{"../utils/model":40,"./events":37,"./module":39}],39:[function(require,module,exports){
 var moduleKeywords = ['included', 'extended'];
 
 
@@ -3497,7 +3808,7 @@ Module.clone = function(child, parent) {
 };
 
 module.exports = Module;
-},{}],34:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 var createObject = Object.create || function(o) {
   var Func;
   Func = function() {};
@@ -3531,7 +3842,7 @@ module.exports = {
 	makeArray: makeArray,
 	isBlank: isBlank
 }
-},{}],35:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -3640,7 +3951,7 @@ function parse(html, doc) {
   return fragment;
 }
 
-},{}],36:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 module.exports = getSize
 
 function getSize(element) {
@@ -3676,4 +3987,4 @@ function parse(prop) {
   return parseFloat(prop) || 0
 }
 
-},{}]},{},[27])
+},{}]},{},[33])

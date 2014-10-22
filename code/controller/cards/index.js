@@ -1,19 +1,13 @@
 var domify = require("domify");
 var Layout = require("./layout");
-var ListItem = require("./item");
-var TabItem = require("./tab");
 var CardItem = require("./card");
-
 
 function List(container, name, object, fields, viewType, label){
 	var _this = this;
 	var standardFields = ["id", "name"];
 	var object_name = object.className
-	this.ViewType = ListItem;
+	this.ViewType = CardItem;
 	this.label = label;
-	if(viewType == "tab") this.ViewType = TabItem
-	if(viewType == "card") this.ViewType = CardItem
-
 
 	if(fields) standardFields = standardFields.concat( fields );
 	if(!name) name = "selected";
@@ -57,8 +51,6 @@ List.prototype.itemClick = function(e){
 	this.object.selected = item;
 	this.object.trigger("SELECTED", item);
 }
-
-
 
 
 module.exports = List;

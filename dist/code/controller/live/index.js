@@ -8,7 +8,10 @@ var Type = require("../../model/type");
 var Layout = require("./layout");
 
 var ListController = require("../list");
+var FilterController = require("../filter");
 
+
+var CardController = require("../cards");
 
 
 function Live(name){
@@ -17,16 +20,26 @@ function Live(name){
 	this.el = domify( Layout(name) );
 
 	var accountContainer = this.el.querySelector(".account_list");
-	this.accountListController = new ListController( accountContainer , "account", Account, ["Type"]  );
+	this.accountListController = new CardController( accountContainer , "account", Account, ["Type","Industry","Description","AccountSource", "AnnualRevenue"]  );
 
-	var typeContainer = this.el.querySelector(".type_list");
-	this.typeListController = new ListController( typeContainer , "type", Type, [""], "tab" );
 
-	var contactContainer = this.el.querySelector(".contact_list");
-	this.contactListController = new ListController( contactContainer , "contact", Contact, [""] );
+	Account.bind("refresh",function(){
+
+
+		var typeContainer = _this.el.querySelector(".type_list");
+		this.typeListController = new FilterController( typeContainer , 'Types',Account, "Type"  );
+
+		var industryContainer = _this.el.querySelector(".industry_list");
+		this.industryListController = new FilterController( industryContainer ,"Industries", Account, "Industry"  );
+
+
+		var contactContainer = _this.el.querySelector(".contact_list");
+	//	this.contactListController = new ListController( contactContainer , "contact", Contact, [""] );
+
+	})
 
 	var caseContainer = this.el.querySelector(".case_list");
-	this.caseListController = new ListController( caseContainer , "case", Case, ["Subject"], "", "Subject" );
+//	this.caseListController = new ListController( caseContainer , "case", Case, ["Subject"], "", "Subject" );
 
 	Account.bind("SELECTED",function(account){
 		_this.onAccountSelected(account);

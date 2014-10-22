@@ -1,4 +1,4 @@
-<div class="row-block row-block-head" >
+<div class="row-block row-block-head row-block__white" >
 	<div  class="row-block-title"><span class="text-clay">Clay</span> for Salesforce.com</div>
 	<blockquote class="row-block-text">Available in App Exchange</blockquote>
 </div>

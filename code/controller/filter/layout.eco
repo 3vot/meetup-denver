@@ -1,0 +1,11 @@
+	<div class="row-block-header row-block-header__small ">
+		<%= @label %>
+	</div>
+
+<% for item in @items: %>
+	<div data-type="<%= item %>" class="filter-item">
+		<%= item %>
+		<span class="circle"></span>
+	</div>
+
+<% end %>
